@@ -148,3 +148,19 @@ button {
     scroll-behavior: auto !important;
   }
 }
+
+/* ?debug=1 only — a live readout of the scroll engine, for reading off a
+   screenshot taken on a real device. */
+.diag {
+  position: fixed; top: 6px; left: 6px; right: 6px; z-index: 200;
+  padding: 8px 10px;
+  background: oklch(12% 0.02 40 / 0.92);
+  border: 1px solid var(--haldi-45);
+  border-radius: 4px;
+  font-family: ui-monospace, monospace;
+  font-size: 10px; line-height: 1.5;
+  color: var(--kagad);
+  pointer-events: none;
+  white-space: pre-wrap;
+}
+.diag b { color: var(--haldi); font-weight: 400; }
