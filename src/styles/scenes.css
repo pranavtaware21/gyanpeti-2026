@@ -9,12 +9,28 @@
 
 /* ── the column ─────────────────────────────────────────────────────── */
 
+/*
+  No overflow clipping here. This is not a style preference — it is the one
+  thing that decided whether the piece worked on a phone.
+
+  `.shaft` used to carry `overflow-x: clip` to contain the sideways travel in
+  scenes 12 and 16. Chrome tolerates that and leaves `position: sticky`
+  working. WebKit does not: clipping one axis makes the element a scroll
+  container for the other, and every sticky stage inside then pins to *that*
+  instead of to the viewport — so nothing ever pinned, all twenty-one scenes
+  stacked into one long document, and several scenes' text piled on top of
+  itself. It looked correct in every desktop browser and broken on every
+  iPhone, because on iOS every browser is WebKit, Chrome included.
+
+  The clip was never needed: each `.stage` already has `overflow: hidden`, and
+  every scene's content lives inside one. Nothing may reintroduce an overflow
+  or contain property on an ancestor of `.stage`.
+*/
 .shaft {
   width: 100%;
   max-width: var(--col);
   margin: 0 auto;
   position: relative;
-  overflow-x: clip;
 }
 
 .scene { position: relative; }
