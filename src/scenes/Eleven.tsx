@@ -81,7 +81,7 @@ export function Eleven() {
           <div className="s12-rail-clip">
             <div
               className="s12-rail"
-              style={{ transform: `translateX(calc(var(--q,0) * (min(100vw, var(--col)) - 100% - 36px)))` }}
+              style={{ transform: `translateX(calc(var(--q) * (min(100vw, var(--col)) - 100% - 36px)))` }}
             >
               {cards}
             </div>
@@ -89,7 +89,7 @@ export function Eleven() {
         )}
 
         <div className="s12-progress" aria-hidden="true">
-          <div style={{ width: 'calc(var(--q,0) * 100%)' }} />
+          <div style={{ width: 'calc(var(--q) * 100%)' }} />
         </div>
         <div className="s12-hint">{V2.eleven.hint}</div>
       </Stage>

@@ -32,20 +32,20 @@ export function Close() {
     return () => io.disconnect()
   }, [])
 
-  const clear = ramp(0.78, 12)
+  const clear = ramp(0.72, 12)
 
   return (
     <Scene track={235} label="२१ समारोप" className="s21">
       <Stage className="s21-stage">
         <p
           className="s21-lead"
-          style={{ opacity: `calc(${ramp(0, 10)} - ${ramp(0.18, 8)})` }}
+          style={{ opacity: `calc(${ramp(0, 10)} - ${ramp(0.16, 12)})` }}
         >
           {V2.close.lead}
         </p>
 
         <div className="s21-body" style={{ opacity: `calc(1 - ${clear})` }}>
-          <div className="s21-youll" style={{ opacity: ramp(0.2, 9) }}>
+          <div className="s21-youll" style={{ opacity: ramp(0.26, 9) }}>
             {V2.close.youWillSee}
           </div>
           <div className="s21-strands">
@@ -65,7 +65,7 @@ export function Close() {
         <div
           ref={endRef}
           className="s21-morya"
-          style={{ opacity: ramp(0.78, 12), transform: `scale(calc(.9 + ${ramp(0.78, 12)} * .1))` }}
+          style={{ opacity: ramp(0.81, 12), transform: `scale(calc(.9 + ${ramp(0.81, 12)} * .1))` }}
         >
           <h2>{V2.close.morya}</h2>
         </div>

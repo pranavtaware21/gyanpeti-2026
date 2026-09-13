@@ -33,7 +33,25 @@
   position: relative;
 }
 
-.scene { position: relative; }
+/*
+  --q and --p are declared here, not defaulted at each use site.
+
+  Every opacity in this piece is a clamp() over the scrub variable. Written
+  with a fallback — clamp(0,calc((var(--q,0) - .3) * 8),1) — there is a comma
+  inside the var() nested inside the clamp(), and Safari counts that as a
+  fourth argument to clamp and throws the whole declaration away. Opacity then
+  falls back to 1, every beat in a scene is visible at once, and the text piles
+  on top of itself. Chrome and current headless WebKit both parse it correctly,
+  which is why it survived every check until a real iPhone screenshot.
+
+  Declaring them up front means every reference is a bare var(--q) with no
+  comma in it, and the value exists before the driver's first frame.
+*/
+.scene {
+  position: relative;
+  --q: 0;
+  --p: 0;
+}
 
 /*
   --vh, never dvh or svh.
@@ -57,7 +75,7 @@
 .stage {
   position: sticky;
   top: 0;
-  height: var(--vh);
+  height: var(--vh, 100svh);
   overflow: hidden;
 }
 
@@ -76,7 +94,7 @@
 }
 .rule-fill {
   height: 2px;
-  width: calc(var(--g, 0) * 100%);
+  width: calc(var(--g) * 100%);
   background: linear-gradient(90deg, var(--shendur), var(--haldi));
 }
 
@@ -105,7 +123,7 @@
   color: var(--kagad);
 }
 .s01-hint {
-  position: absolute; bottom: calc(var(--vh) * 0.06); left: 0; right: 0;
+  position: absolute; bottom: calc(var(--vh, 100svh) * 0.06); left: 0; right: 0;
   text-align: center;
   font-size: 11.5px; letter-spacing: .24em;
   color: oklch(94% 0.018 84 / .7);
@@ -240,7 +258,7 @@
 }
 .s05-lines > * + * { margin-top: 10px; }
 .s05-credit {
-  position: absolute; left: var(--gut); right: var(--gut); bottom: calc(var(--vh) * 0.05);
+  position: absolute; left: var(--gut); right: var(--gut); bottom: calc(var(--vh, 100svh) * 0.05);
   font-size: 11px; color: oklch(94% 0.018 84 / .62);
 }
 .s05-place {
@@ -253,7 +271,7 @@
 /* ── 06 दातेगड ──────────────────────────────────────────────────────── */
 
 .s06-stage { display: flex; flex-direction: column; justify-content: center; }
-.s06-plate { height: calc(var(--vh) * 0.42); overflow: hidden; }
+.s06-plate { height: calc(var(--vh, 100svh) * 0.42); overflow: hidden; }
 .s06-plate-inner { height: 100%; }
 .s06-plate .img, .s06-plate .img img { height: 100%; }
 .s06-body {
@@ -304,7 +322,7 @@
 }
 .s07-well {
   flex: none;
-  padding: 20px 18px 26px; min-height: calc(var(--vh) * 0.34);
+  padding: 20px 18px 26px; min-height: calc(var(--vh, 100svh) * 0.34);
   font-family: var(--f-read); font-size: 18px; line-height: 1.85;
 }
 
@@ -469,7 +487,7 @@
 .s10-lift {
   position: absolute; inset: 0;
   background: #000;
-  opacity: calc(.5 - var(--q, 0) * .38);
+  opacity: calc(.5 - var(--q) * .38);
   pointer-events: none;
 }
 .s10-scrim {
@@ -477,10 +495,10 @@
   background: linear-gradient(oklch(10% 0.014 40 / .7), transparent 40%, oklch(10% 0.014 40 / .94));
 }
 .s10-lead {
-  position: absolute; left: var(--gut); right: var(--gut); top: calc(var(--vh) * 0.1);
+  position: absolute; left: var(--gut); right: var(--gut); top: calc(var(--vh, 100svh) * 0.1);
   font-family: var(--f-read); font-size: 18px; line-height: 1.9;
 }
-.s10-foot { position: absolute; left: var(--gut); right: var(--gut); bottom: calc(var(--vh) * 0.11); }
+.s10-foot { position: absolute; left: var(--gut); right: var(--gut); bottom: calc(var(--vh, 100svh) * 0.11); }
 .s10-name {
   font-family: var(--f-disp);
   font-size: min(17vw, 70px); line-height: 1;
@@ -510,12 +528,12 @@
   color: var(--haldi); font-feature-settings: 'tnum';
 }
 .s11-top {
-  position: absolute; left: var(--gut); right: var(--gut); top: calc(var(--vh) * 0.12);
+  position: absolute; left: var(--gut); right: var(--gut); top: calc(var(--vh, 100svh) * 0.12);
   text-align: center;
   font-family: var(--f-read); font-size: 18px; line-height: 1.9;
 }
 .s11-bottom {
-  position: absolute; left: var(--gut); right: var(--gut); bottom: calc(var(--vh) * 0.1);
+  position: absolute; left: var(--gut); right: var(--gut); bottom: calc(var(--vh, 100svh) * 0.1);
   text-align: center;
   font-family: var(--f-read); font-size: 17.5px; line-height: 1.9;
 }
@@ -595,7 +613,7 @@
   padding: 0 var(--gut);
 }
 .s14-ghost {
-  position: absolute; right: -10px; top: calc(var(--vh) * 0.14);
+  position: absolute; right: -10px; top: calc(var(--vh, 100svh) * 0.14);
   font-family: var(--f-read);
   font-size: min(52vw, 220px); line-height: .8;
   color: var(--haldi-11); font-feature-settings: 'tnum';
@@ -622,7 +640,7 @@
   background: radial-gradient(42% 30% at 50% 46%, oklch(63% 0.213 38 / .2), transparent 72%);
 }
 .s15-top {
-  position: absolute; left: var(--gut); right: var(--gut); top: calc(var(--vh) * 0.09);
+  position: absolute; left: var(--gut); right: var(--gut); top: calc(var(--vh, 100svh) * 0.09);
   text-align: center;
   font-family: var(--f-read); font-size: 17px; line-height: 1.9;
 }
@@ -637,7 +655,7 @@
   font-family: var(--f-disp); font-size: 36px;
 }
 .s15-by {
-  position: absolute; left: var(--gut); right: var(--gut); bottom: calc(var(--vh) * 0.08);
+  position: absolute; left: var(--gut); right: var(--gut); bottom: calc(var(--vh, 100svh) * 0.08);
   text-align: center;
   font-family: var(--f-read); font-size: 16px; line-height: 1.85;
   color: oklch(94% 0.018 84 / .88);
@@ -674,7 +692,7 @@
 }
 
 .s16-deck {
-  position: absolute; left: 0; right: 0; bottom: calc(var(--vh) * 0.05);
+  position: absolute; left: 0; right: 0; bottom: calc(var(--vh, 100svh) * 0.05);
   height: 212px;
   pointer-events: none;
 }
@@ -694,7 +712,7 @@
 
 .s17 { background: var(--kagad); }
 .s17-stage { background: var(--kagad); }
-.s17-path { position: absolute; left: 0; right: 0; top: calc(var(--vh) * 0.08); bottom: calc(var(--vh) * 0.34); }
+.s17-path { position: absolute; left: 0; right: 0; top: calc(var(--vh, 100svh) * 0.08); bottom: calc(var(--vh, 100svh) * 0.34); }
 .s17-rule { position: absolute; left: 26px; top: 0; width: 1px; background: var(--paper-rule); }
 /*
   The five words sit at fixed percentages of a track whose height is a fraction
@@ -705,15 +723,15 @@
 .s17-word {
   position: absolute;
   font-family: var(--f-disp);
-  font-size: clamp(23px, calc(var(--vh) * 0.042), 36px);
+  font-size: clamp(23px, calc(var(--vh, 100svh) * 0.042), 36px);
   color: var(--paper-ink);
 }
 .s17-word.is-last {
-  font-size: clamp(25px, calc(var(--vh) * 0.046), 40px);
+  font-size: clamp(25px, calc(var(--vh, 100svh) * 0.046), 40px);
   color: oklch(46% 0.170 42);
 }
 .s17-well {
-  position: absolute; left: var(--gut); right: var(--gut); bottom: calc(var(--vh) * 0.08);
+  position: absolute; left: var(--gut); right: var(--gut); bottom: calc(var(--vh, 100svh) * 0.08);
   color: var(--paper-ink-soft);
   font-family: var(--f-read); font-size: 17px; line-height: 1.9;
 }
@@ -728,7 +746,7 @@
 
   It repaints the ground rather than a flat --deep, so the scene returns to
   basalt with no visible edge. No fixed attachment needed: this sits inside a
-  pinned calc(var(--vh) * 1.0) stage, so its box IS the viewport, and an element-relative
+  pinned calc(var(--vh, 100svh) * 1.0) stage, so its box IS the viewport, and an element-relative
   ramp lands in exactly the same place as the fixed one behind it.
 */
 .s17-shut {
@@ -853,7 +871,7 @@
 .sheet-card {
   position: relative;
   width: 100%; max-width: var(--col);
-  max-height: calc(var(--vh) * 0.74); overflow-y: auto;
+  max-height: calc(var(--vh, 100svh) * 0.74); overflow-y: auto;
   background: var(--deep);
   border-top: 1px solid oklch(83% 0.150 86 / .35);
   border-radius: 8px 8px 0 0;
@@ -875,7 +893,7 @@
 /*
   The whole photograph, not a cropped band.
 
-  This used to clip to calc(var(--vh) * 0.34), which cut the base off most of the eleven — on
+  This used to clip to calc(var(--vh, 100svh) * 0.34), which cut the base off most of the eleven — on
   several of them that is where the seated figure at the murti's feet is. The
   image now fits inside its box instead of filling it, so nothing is lost
   before the visitor even decides whether to enlarge it.
@@ -902,7 +920,7 @@
   the photograph to nothing.
 */
 .sheet-photo .img {
-  height: calc(var(--vh) * 0.42);
+  height: calc(var(--vh, 100svh) * 0.42);
   width: auto;
   max-width: 100%;
   margin: 0 auto;
@@ -933,7 +951,7 @@
   display: flex; align-items: center; justify-content: center;
   padding: 18px; cursor: zoom-out;
 }
-.zoom img { max-width: 100%; max-height: calc(var(--vh) * 0.88); border: 1px solid oklch(83% 0.150 86 / .3); }
+.zoom img { max-width: 100%; max-height: calc(var(--vh, 100svh) * 0.88); border: 1px solid oklch(83% 0.150 86 / .3); }
 
 .gap {
   border: 1px dashed var(--haldi-45);
@@ -990,7 +1008,7 @@
 /* 05–07, 10: plate and text share the screen instead of stacking. */
 .shaft[data-stage='wide'] .s05-lines { font-size: 34px; max-width: 22ch; }
 .shaft[data-stage='wide'] .s05-credit {
-  position: absolute; left: var(--gut); right: var(--gut); bottom: calc(var(--vh) * 0.05);
+  position: absolute; left: var(--gut); right: var(--gut); bottom: calc(var(--vh, 100svh) * 0.05);
   font-size: 11px; color: oklch(94% 0.018 84 / .62);
 }
 .s05-place { font-size: min(11vw, 128px); }
@@ -1001,7 +1019,7 @@
   align-content: center;
   column-gap: 48px;
 }
-.shaft[data-stage='wide'] .s06-plate { height: calc(var(--vh) * 0.68); grid-row: 1 / span 4; }
+.shaft[data-stage='wide'] .s06-plate { height: calc(var(--vh, 100svh) * 0.68); grid-row: 1 / span 4; }
 .shaft[data-stage='wide'] .s06-body,
 .shaft[data-stage='wide'] .s06-facts,
 .shaft[data-stage='wide'] .s06-hanuman,
@@ -1013,7 +1031,7 @@
   grid-template-columns: 1fr 1fr;
   column-gap: 48px;
 }
-.shaft[data-stage='wide'] .s07-frame { height: calc(var(--vh) * 1.0); }
+.shaft[data-stage='wide'] .s07-frame { height: calc(var(--vh, 100svh) * 1.0); }
 .shaft[data-stage='wide'] .s07-well {
   min-height: 0; align-self: center;
   padding: 0; font-size: 22px;
@@ -1047,7 +1065,7 @@
   margin-top: 24px;
 }
 .shaft[data-stage='wide'] .s12-card { width: auto; }
-.shaft[data-stage='wide'] .s12-card-plate { height: calc(var(--vh) * 0.4); }
+.shaft[data-stage='wide'] .s12-card-plate { height: calc(var(--vh, 100svh) * 0.4); }
 .shaft[data-stage='wide'] .s12-card-head { flex-direction: column; align-items: flex-start; gap: 2px; }
 .shaft[data-stage='wide'] .s12-card-head b { font-size: 15px; }
 .shaft[data-stage='wide'] .s12-card-place { font-size: 11px; }

@@ -14,7 +14,7 @@ export function StoryBegins() {
   return (
     <Scene track={175} label="०४ कथा" className="s04">
       <Stage className="s04-stage">
-        <div className="s04-rule" style={{ width: 'clamp(0%,calc(var(--q,0) * 200%),100%)' }} />
+        <div className="s04-rule" style={{ width: 'clamp(0%,calc(var(--q) * 200%),100%)' }} />
 
         <div
           className="s04-a"

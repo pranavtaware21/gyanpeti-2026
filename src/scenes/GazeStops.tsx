@@ -18,7 +18,7 @@ export function GazeStops() {
       <Stage className="s10-stage">
         <div
           className="s10-plate"
-          style={{ transform: `scale(calc(1.9 - var(--q,0) * .62)) translateY(calc(var(--q,0) * -30px))` }}
+          style={{ transform: `scale(calc(1.9 - var(--q) * .62)) translateY(calc(var(--q) * -30px))` }}
         >
           <Img
             media={PHOTOS.shrine}

@@ -16,6 +16,10 @@
   diffed against it line for line.
 */
 :root {
+  /* Document scroll progress, published by the scroll driver. Declared so
+     nothing has to carry a fallback comma inside a clamp(). */
+  --g: 0;
+
   --deep: #0d0906;
   --katal-900: oklch(21% 0.038 42);
   --shendur: oklch(63% 0.213 38);

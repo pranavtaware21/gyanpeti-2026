@@ -25,8 +25,8 @@ export function TwoForms() {
         <div
           className="s08-ground"
           style={{
-            opacity: `calc(.22 + var(--q,0) * .34)`,
-            transform: `scale(calc(1.34 - var(--q,0) * .26)) translateY(calc(var(--q,0) * -30px))`,
+            opacity: `calc(.22 + var(--q) * .34)`,
+            transform: `scale(calc(1.34 - var(--q) * .26)) translateY(calc(var(--q) * -30px))`,
           }}
         >
           <Img media={PHOTOS.mandir} slot="dategad.mandir" fill sizes="100vw" />

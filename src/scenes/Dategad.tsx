@@ -11,7 +11,7 @@ import { Img } from '../ui/Img'
  * not optional: the aerial view is someone else's photograph.
  */
 export function Dategad() {
-  const open = 'calc(50% - clamp(0%,calc(var(--q,0) * 120%),50%))'
+  const open = 'calc(50% - clamp(0%,calc(var(--q) * 120%),50%))'
 
   return (
     <Scene track={235} label="०६ दातेगड" className="s06">
@@ -19,7 +19,7 @@ export function Dategad() {
         <div className="s06-plate" style={{ clipPath: `inset(${open} 0 ${open} 0)` }}>
           <div
             className="s06-plate-inner"
-            style={{ transform: `scale(calc(1.2 - var(--q,0) * .2))` }}
+            style={{ transform: `scale(calc(1.2 - var(--q) * .2))` }}
           >
             <Img media={PHOTOS.aerial} slot="dategad.aerial" fill sizes="100vw" priority />
           </div>

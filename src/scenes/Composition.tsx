@@ -54,7 +54,7 @@ export function Composition() {
   return (
     <Scene track={270} label="१९ रचना" className="s19">
       <Stage className="s19-stage">
-        <div className="s19-wash" aria-hidden="true" style={{ transform: `scale(calc(.6 + var(--q,0) * .8))` }} />
+        <div className="s19-wash" aria-hidden="true" style={{ transform: `scale(calc(.6 + var(--q) * .8))` }} />
 
         <div
           className="s19-field"

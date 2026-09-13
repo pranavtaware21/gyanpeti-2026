@@ -15,7 +15,7 @@ export function LookUp() {
   return (
     <Scene track={200} label="२० वर पहा" className="s20">
       <Stage className="s20-stage">
-        <div className="s20-wash" aria-hidden="true" style={{ transform: `scale(calc(.5 + var(--q,0) * .95))` }} />
+        <div className="s20-wash" aria-hidden="true" style={{ transform: `scale(calc(.5 + var(--q) * .95))` }} />
 
         <p
           className="s20-seen"

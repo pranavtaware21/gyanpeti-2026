@@ -39,7 +39,7 @@ export function Scene({
       data-scene
       aria-label={label}
       className={`scene ${className}`}
-      style={{ minHeight: `calc(var(--vh) * ${track / 100})`, ...style }}
+      style={{ minHeight: `calc(var(--vh, 100svh) * ${track / 100})`, ...style }}
     >
       {children}
     </section>

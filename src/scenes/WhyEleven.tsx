@@ -18,7 +18,7 @@ export function WhyEleven() {
         <div
           className="s14-ghost"
           aria-hidden="true"
-          style={{ transform: `scale(calc(.8 + var(--q,0) * .3))` }}
+          style={{ transform: `scale(calc(.8 + var(--q) * .3))` }}
         >
           ११
         </div>

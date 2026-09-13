@@ -20,8 +20,8 @@ export function Journey() {
         <div
           className="s05-ground"
           style={{
-            opacity: `calc(.1 + var(--q,0) * .22)`,
-            transform: `scale(calc(1.5 - var(--q,0) * .34)) translateY(calc(var(--q,0) * -40px))`,
+            opacity: `calc(.1 + var(--q) * .22)`,
+            transform: `scale(calc(1.5 - var(--q) * .34)) translateY(calc(var(--q) * -40px))`,
           }}
         >
           <Img media={PHOTOS.aerial} slot="dategad.aerial" fill sizes="100vw" />

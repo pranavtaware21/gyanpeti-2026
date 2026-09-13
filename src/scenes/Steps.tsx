@@ -17,21 +17,21 @@ export function Steps() {
         <div className="s07-frame">
           <div
             className="s07-plate"
-            style={{ transform: `scale(calc(1.42 - var(--q,0) * .4)) translateY(calc(var(--q,0) * -22px))` }}
+            style={{ transform: `scale(calc(1.42 - var(--q) * .4)) translateY(calc(var(--q) * -22px))` }}
           >
             <Img media={PHOTOS.entrance} slot="dategad.entrance" fill sizes="100vw" />
           </div>
 
           <div className="s07-rail" aria-hidden="true">
-            <div className="s07-rail-fill" style={{ height: 'calc(var(--q,0) * 100%)' }} />
+            <div className="s07-rail-fill" style={{ height: 'calc(var(--q) * 100%)' }} />
           </div>
 
           <div
             className="s07-count"
             aria-hidden="true"
             style={{
-              opacity: `calc(.28 + var(--q,0) * .5)`,
-              transform: `scale(calc(.82 + var(--q,0) * .18))`,
+              opacity: `calc(.28 + var(--q) * .5)`,
+              transform: `scale(calc(.82 + var(--q) * .18))`,
             }}
           >
             {V2.steps.count}

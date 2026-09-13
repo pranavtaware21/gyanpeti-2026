@@ -22,7 +22,7 @@ export function Shri() {
           className="s01-ring"
           style={{
             background:
-              'conic-gradient(from -90deg, var(--haldi) calc(var(--q,0) * 360deg), transparent 0deg)',
+              'conic-gradient(from -90deg, var(--haldi) calc(var(--q) * 360deg), transparent 0deg)',
             opacity: `calc(.9 - ${leave} * .9)`,
             transform: `scale(${track(0.92, 1.08)})`,
           }}
@@ -41,13 +41,13 @@ export function Shri() {
             opacity: `calc(1 - ${ramp(0.9, 9)})`,
           }}
         >
-          <h1 style={{ letterSpacing: 'calc(.5em - var(--q,0) * .34em)' }}>
+          <h1 style={{ letterSpacing: 'calc(.5em - var(--q) * .34em)' }}>
             {V2.shri.mark}
           </h1>
         </div>
         <div
           className="s01-hint"
-          style={{ opacity: 'clamp(0,calc(1 - var(--g,0) * 26),1)' }}
+          style={{ opacity: 'clamp(0,calc(1 - var(--g) * 26),1)' }}
         >
           {V2.shri.hint}
         </div>

@@ -11,7 +11,7 @@ import { V2 } from '../content/v2'
  */
 export function Identity() {
   const wipe = (at: number) =>
-    `inset(0 calc(100% - clamp(0%,calc((var(--q,0) - ${at}) * 320%),100%)) 0 0)`
+    `inset(0 calc(100% - clamp(0%,calc((var(--q) - ${at}) * 320%),100%)) 0 0)`
 
   return (
     <Scene track={200} label="०३ ओळख" className="s03">
@@ -39,7 +39,7 @@ export function Identity() {
         <div className="s03-year">
           <div
             className="s03-rule"
-            style={{ width: 'clamp(0px,calc((var(--q,0) - .58) * 700px),100%)' }}
+            style={{ width: 'clamp(0px,calc((var(--q) - .58) * 700px),100%)' }}
           />
           <div
             style={{

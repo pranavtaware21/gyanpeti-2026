@@ -30,7 +30,7 @@ export function Sun() {
 
   return (
     <Scene track={240} label="०९ सूर्य" className="s09">
-      <Stage className="s09-stage" style={{ ['--sun' as string]: 'var(--q,0)' }}>
+      <Stage className="s09-stage" style={{ ['--sun' as string]: 'var(--q)' }}>
         <div className="s09-wash" aria-hidden="true" />
 
         <div className="s09-lines">

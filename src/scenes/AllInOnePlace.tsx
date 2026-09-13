@@ -15,14 +15,14 @@ export function AllInOnePlace() {
       <Stage className="s18-stage">
         <p
           className="s18-lead"
-          style={{ opacity: `calc(${ramp(0, 10)} - ${ramp(0.2, 7)})` }}
+          style={{ opacity: `calc(${ramp(0, 10)} - ${ramp(0.16, 12)})` }}
         >
           {V2.allInOne.lead}
         </p>
 
         <div className="s18-body">
           {V2.allInOne.strands.map((line, i) => (
-            <div key={line} style={{ opacity: ramp(0.22 + i * 0.1, 9) }}>
+            <div key={line} style={{ opacity: ramp(0.26 + i * 0.1, 9) }}>
               {line}
             </div>
           ))}

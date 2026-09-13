@@ -35,7 +35,7 @@ export function Offering() {
   return (
     <Scene track={300} label="१५ अर्पण" className="s15">
       <Stage className="s15-stage">
-        <div className="s15-wash" aria-hidden="true" style={{ transform: `scale(calc(.7 + var(--q,0) * .6))` }} />
+        <div className="s15-wash" aria-hidden="true" style={{ transform: `scale(calc(.7 + var(--q) * .6))` }} />
 
         <div className="s15-top">
           <Seq minHeight={72}>

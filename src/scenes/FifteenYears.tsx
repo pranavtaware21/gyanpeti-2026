@@ -12,7 +12,7 @@ import { V2 } from '../content/v2'
  */
 export function FifteenYears() {
   const meet = ramp(0, 5)
-  const recede = ramp(0.46, 4)
+  const recede = ramp(0.42, 10)
 
   return (
     <Scene track={210} label="०२ १५ वर्षे" className="s02">
@@ -42,12 +42,12 @@ export function FifteenYears() {
 
         <div
           className="s02-head"
-          style={{ opacity: `calc(${ramp(0.22, 7)} - ${ramp(0.5, 5)})` }}
+          style={{ opacity: `calc(${ramp(0.22, 7)} - ${ramp(0.46, 10)})` }}
         >
           {V2.fifteen.head}
         </div>
 
-        <div className="s02-lines" style={{ opacity: ramp(0.56, 6) }}>
+        <div className="s02-lines" style={{ opacity: ramp(0.56, 10) }}>
           {V2.fifteen.lines.map((line, i) => (
             <Beat key={line} from={0.56 + i * 0.07} rate={9} className="s02-line">
               {line}
