@@ -10,31 +10,28 @@ html {
 /*
   The warm ground.
 
-  One field for the entire document, anchored to the viewport. The first
-  attempt painted a wash per scene, which produced exactly what it sounds
-  like: a hard horizontal seam wherever one scene's wash ended and the next
-  began, and hard vertical ones at the edges of the 480px reading column. A
-  gradient you can see the boundary of is a rectangle, not an atmosphere.
+  One field for the entire document, painted by a fixed layer behind
+  everything. Two earlier attempts failed: a wash per scene had hard seams at
+  every scene boundary and at the edges of the reading column, and a radial
+  had a centre, which reads as an orange blob sitting on the page rather than
+  a room that happens to be warm. A vertical ramp has no locus to find.
 
-  `background-attachment: fixed` is what makes it seamless — the field belongs
-  to the screen rather than to any scene, so there is no edge anywhere in the
-  scroll and nothing to line up. It spans the full viewport width, past the
-  column, so the sides have no seam either.
+  It is a `position: fixed` ELEMENT, not `background-attachment: fixed`. That
+  property is a long-standing weak spot on iOS Safari — variously ignored, or
+  forcing a full-viewport repaint on every scroll frame, which is real jank on
+  the phone this is actually read on. A fixed element gets its own compositor
+  layer and costs nothing to scroll past.
 
-  The noise tile on top is not decoration: a smooth gradient this dark bands
-  into visible rings on an 8-bit display, and a little dither is the standard
-  cure. It is at 3.5% and you should never consciously see it.
-
-  Amplitude is deliberately tiny — kagad on this stays above 14:1. If you can
-  see where the warmth starts and stops, it is too strong.
+  Amplitude is very low on purpose: at its strongest this lifts the ground
+  from rgb(13,9,6) to about rgb(31,16,9) — warmth when you look for it,
+  invisible when you do not. If you can see where it starts or stops, it is
+  too strong. The noise tile is dither: a gradient this dark bands into
+  visible steps on an 8-bit display.
 */
 body {
   margin: 0;
   min-height: 100%;
-  background-color: var(--deep);
-  background-image: var(--ground-image);
-  background-attachment: fixed, fixed;
-  background-size: var(--ground-size);
+  background: transparent;
   color: var(--kagad);
   font-family: var(--f-ui);
   font-size: 17px;
@@ -43,6 +40,17 @@ body {
   text-rendering: optimizeLegibility;
   overscroll-behavior-y: none;
   -webkit-tap-highlight-color: transparent;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: var(--deep);
+  background-image: var(--ground-image);
+  background-size: var(--ground-size);
 }
 
 /* Devanagari needs headroom above the shirorekha and below descenders that

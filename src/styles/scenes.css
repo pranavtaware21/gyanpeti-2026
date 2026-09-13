@@ -674,11 +674,18 @@
   rather than a flat --deep — fixed attachment means it lines up exactly with
   the field on either side of it, so the scene returns to basalt with no edge.
 */
+/*
+  The circle that closes the paper back to the dark.
+
+  It repaints the ground rather than a flat --deep, so the scene returns to
+  basalt with no visible edge. No fixed attachment needed: this sits inside a
+  pinned 100dvh stage, so its box IS the viewport, and an element-relative
+  ramp lands in exactly the same place as the fixed one behind it.
+*/
 .s17-shut {
   position: absolute; inset: 0;
   background-color: var(--deep);
   background-image: var(--ground-image);
-  background-attachment: fixed, fixed;
   background-size: var(--ground-size);
 }
 
