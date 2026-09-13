@@ -69,9 +69,39 @@ function ensureObserver() {
 
 const clamp01 = (n: number) => (n < 0 ? 0 : n > 1 ? 1 : n)
 
+/**
+ * A viewport height that does not flinch when the URL bar moves.
+ *
+ * On iOS the browser chrome collapses as you scroll down and returns as you
+ * scroll up, changing `innerHeight` by 60–100px mid-gesture. Dividing by that
+ * live value makes `--q` lurch every time the bar animates: beats fire early
+ * or twice, and lines that should have handed over sit on top of each other.
+ * It is invisible on a desktop and in headless runs, because their viewport
+ * never moves.
+ *
+ * The stages are sized in svh — the viewport with the chrome showing — so this
+ * tracks the same thing: the smallest height seen since the last real layout
+ * change. A genuine change (rotation, window resize, a keyboard opening) moves
+ * it by a lot, and that resets the baseline; the URL bar never does.
+ */
+let stableVh = 0
+function viewportHeight(): number {
+  const now = innerHeight || 1
+  if (!stableVh) { stableVh = now; return stableVh }
+  // More than a quarter different: a real layout change, not browser chrome.
+  if (Math.abs(now - stableVh) / stableVh > 0.25) stableVh = now
+  else if (now < stableVh) stableVh = now
+  return stableVh
+}
+
+/** Rotation and real resizes re-measure from scratch. */
+if (typeof window !== 'undefined') {
+  addEventListener('orientationchange', () => { stableVh = 0 })
+}
+
 function frame() {
   raf = requestAnimationFrame(frame)
-  const vh = innerHeight || 1
+  const vh = viewportHeight()
 
   const max = document.documentElement.scrollHeight - vh
   const doc = max > 0 ? clamp01(scrollY / max) : 0

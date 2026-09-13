@@ -5,7 +5,8 @@ import { band } from '../engine/scrub'
 /**
  * A scene is a tall section with a pinned stage inside it.
  *
- * `track` is the section's height in dvh and is therefore the only control
+ * `track` is the section's height as a multiple of the viewport and is the
+ * only control
  * over pacing: 220 gives a beat roughly two screens of scroll to land, 440
  * gives a long dissolve. The numbers are carried over from the design source
  * unchanged, because pacing is the part of this piece that was authored
@@ -38,7 +39,7 @@ export function Scene({
       data-scene
       aria-label={label}
       className={`scene ${className}`}
-      style={{ minHeight: `${track}dvh`, ...style }}
+      style={{ minHeight: `calc(var(--vh) * ${track / 100})`, ...style }}
     >
       {children}
     </section>
