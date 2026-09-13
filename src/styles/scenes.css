@@ -190,6 +190,8 @@
   position: absolute; left: var(--gut); right: var(--gut); top: 42%;
   margin: 0;
 }
+/* Clear of the claim's line box, in px so short screens behave too. */
+.s04-c { top: calc(42% + 78px); }
 .s04-a {
   font-family: var(--f-disp);
   font-size: min(8vw, 32px); line-height: 1.4;
@@ -345,12 +347,12 @@
   position: absolute; inset: 0;
   background: radial-gradient(66% 42% at 80% 16%, oklch(63% 0.213 38 / .2), transparent 72%);
 }
-.s09-lines { position: relative; min-height: 108px; }
+.s09-lines { position: relative; }
 .s09-lines > p {
-  position: absolute; left: 0; right: 0; margin: 0;
+  margin: 0;
   font-family: var(--f-read); font-size: 19px; line-height: 1.9;
 }
-.s09-lines > p + p { top: 54px; }
+.s09-lines > p + p { margin-top: 6px; }
 
 /*
   isolation is load-bearing.
@@ -675,12 +677,22 @@
 .s17-stage { background: var(--kagad); }
 .s17-path { position: absolute; left: 0; right: 0; top: 8dvh; bottom: 34dvh; }
 .s17-rule { position: absolute; left: 26px; top: 0; width: 1px; background: var(--paper-rule); }
+/*
+  The five words sit at fixed percentages of a track whose height is a fraction
+  of the viewport, so on a short screen the gaps between them shrink while the
+  type does not — at 480px tall they ran into each other and into the prose
+  below. Tying the size to viewport height keeps the spacing proportional.
+*/
 .s17-word {
   position: absolute;
-  font-family: var(--f-disp); font-size: 36px;
+  font-family: var(--f-disp);
+  font-size: clamp(23px, 4.2dvh, 36px);
   color: var(--paper-ink);
 }
-.s17-word.is-last { font-size: 40px; color: oklch(46% 0.170 42); }
+.s17-word.is-last {
+  font-size: clamp(25px, 4.6dvh, 40px);
+  color: oklch(46% 0.170 42);
+}
 .s17-well {
   position: absolute; left: var(--gut); right: var(--gut); bottom: 8dvh;
   color: var(--paper-ink-soft);

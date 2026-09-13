@@ -12,8 +12,8 @@ import { Img } from '../ui/Img'
  */
 export function OneToEleven() {
   const show = ramp(0, 9)
-  const one = ramp(0.3, 5)
-  const eleven = ramp(0.56, 5)
+  const one = ramp(0.32, 14)
+  const eleven = ramp(0.56, 14)
 
   return (
     <Scene track={215} label="११ एक → अकरा" className="s11">
