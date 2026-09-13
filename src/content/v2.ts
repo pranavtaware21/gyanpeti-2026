@@ -27,7 +27,14 @@ import { media } from './media'
  * into `img-source/` and re-runs `npm run assets`.
  */
 export const PHOTOS = {
-  aerial: media('dategad-aerial', { mr: 'दातेगड — वरून दिसणारा गड' }, 'Click.by_महया'),
+  /*
+    No credit argument. Img paints a `credit` as a small badge pinned to the
+    bottom-right of the image, which is right for an inline photograph and
+    wrong for a full-bleed ground — in scene 05 it landed on top of the prose.
+    Scenes 05 and 06 both set the aerial as a ground and both print the credit
+    as their own line, so passing it here only ever duplicated it.
+  */
+  aerial: media('dategad-aerial', { mr: 'दातेगड — वरून दिसणारा गड' }),
   entrance: media('dategad-entrance', { mr: 'अखंड खडकात कोरलेलं भुयारी मंदिर — उतरणाऱ्या पायऱ्या' }),
   mandir: media('dategad-mandir', { mr: 'खडकात कोरलेली मारुतीची मूर्ती' }),
   /*

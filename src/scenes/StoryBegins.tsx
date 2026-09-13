@@ -9,7 +9,7 @@ import { V2 } from '../content/v2'
  * argument, not ornament. Three sentences, each taking the screen alone.
  */
 export function StoryBegins() {
-  const claim = ramp(0.44, 7)
+  const claim = ramp(0.40, 14)
 
   return (
     <Scene track={175} label="०४ कथा" className="s04">
@@ -18,7 +18,7 @@ export function StoryBegins() {
 
         <div
           className="s04-a"
-          style={{ opacity: `calc(${ramp(0.08, 8)} - ${ramp(0.42, 6)})` }}
+          style={{ opacity: `calc(${ramp(0.04, 9)} - ${ramp(0.40, 14)})` }}
         >
           {V2.storyBegins.a}
         </div>
@@ -26,14 +26,14 @@ export function StoryBegins() {
         <div
           className="s04-b"
           style={{
-            opacity: `calc(${claim} - ${ramp(0.74, 6)})`,
+            opacity: `calc(${claim} - ${ramp(0.76, 14)})`,
             transform: `scale(calc(.86 + ${claim} * .14))`,
           }}
         >
           {V2.storyBegins.b}
         </div>
 
-        <div className="s04-c" style={{ opacity: ramp(0.78, 7) }}>
+        <div className="s04-c" style={{ opacity: ramp(0.76, 14) }}>
           {V2.storyBegins.c}
         </div>
       </Stage>

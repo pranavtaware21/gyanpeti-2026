@@ -168,20 +168,38 @@
   display: flex; flex-direction: column; justify-content: center;
   padding: 0 var(--gut);
 }
-.s04-rule { height: 1px; background: var(--haldi); opacity: .45; }
+/*
+  Anchored above the text slot. It used to be the stage's only in-flow child,
+  so once the three sentences moved to a shared absolute slot the rule
+  centred itself and drew straight through them.
+*/
+.s04-rule {
+  position: absolute; left: var(--gut); right: var(--gut); top: 34%;
+  height: 1px; background: var(--haldi); opacity: .45;
+}
+/*
+  All three sentences share one slot.
+
+  They were at 44% and 48% — four percent apart, which meant that during every
+  handover the outgoing line was drawn straight through the incoming one. It
+  read as a rendering fault rather than a transition. Sitting them on the same
+  anchor turns the same fades into a clean dissolve; the sizes still differ,
+  which is the point, since the middle line is the claim.
+*/
+.s04-a, .s04-b, .s04-c {
+  position: absolute; left: var(--gut); right: var(--gut); top: 42%;
+  margin: 0;
+}
 .s04-a {
-  margin-top: 28px;
   font-family: var(--f-disp);
   font-size: min(8vw, 32px); line-height: 1.4;
 }
 .s04-b {
-  position: absolute; left: var(--gut); right: var(--gut); top: 44%;
   font-family: var(--f-disp);
   font-size: min(13vw, 54px); line-height: 1.15;
   color: var(--haldi);
 }
 .s04-c {
-  position: absolute; left: var(--gut); right: var(--gut); top: 48%;
   font-family: var(--f-read); font-size: 20px; line-height: 1.8;
 }
 
@@ -750,16 +768,13 @@
   position: absolute; inset: -20%;
   background: radial-gradient(46% 32% at 50% 50%, oklch(63% 0.213 38 / .3), transparent 72%);
 }
-.s20-seen {
-  position: relative; margin: 0;
-  font-family: var(--f-read); font-size: 17.5px; line-height: 1.95;
+/* One slot, same reason as scene 04: these three replace one another. */
+.s20-seen, .s20-now, .s20-look {
+  position: absolute; left: 26px; right: 26px; top: 34%; margin: 0;
 }
-.s20-now {
-  position: absolute; left: 26px; right: 26px; top: 38%; margin: 0;
-  font-family: var(--f-read); font-size: 19px; line-height: 1.9;
-}
+.s20-seen { font-family: var(--f-read); font-size: 17.5px; line-height: 1.95; }
+.s20-now { font-family: var(--f-read); font-size: 19px; line-height: 1.9; }
 .s20-look {
-  position: absolute; left: 26px; right: 26px; top: 32%; margin: 0;
   text-align: center;
   font-family: var(--f-disp);
   font-size: min(11vw, 44px); line-height: 1.32;

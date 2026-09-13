@@ -46,8 +46,8 @@ export function Future() {
           <Seq minHeight={120}>
             <Beat from={0.44} to={0.58} rate={9}>{V2.future.lines[0]}</Beat>
             <Beat from={0.6} to={0.7} rate={9}>{V2.future.lines[1]}</Beat>
-            <Beat from={0.72} to={0.78} rate={9} outRate={12}>{V2.future.lines[2]}</Beat>
-            <Beat from={0.78} to={0.93} rate={10} outRate={20} className="s17-close">
+            <Beat from={0.70} to={0.80} rate={9} outRate={14}>{V2.future.lines[2]}</Beat>
+            <Beat from={0.80} to={0.96} rate={14} outRate={20} className="s17-close">
               {V2.future.close}
             </Beat>
           </Seq>

@@ -10,7 +10,7 @@ import { V2 } from '../content/v2'
  * with the instruction to stop looking at the screen.
  */
 export function LookUp() {
-  const look = ramp(0.56, 7)
+  const look = ramp(0.64, 14)
 
   return (
     <Scene track={200} label="२० वर पहा" className="s20">
@@ -19,14 +19,14 @@ export function LookUp() {
 
         <p
           className="s20-seen"
-          style={{ opacity: `calc(${ramp(0, 10)} - ${ramp(0.26, 7)})` }}
+          style={{ opacity: `calc(${ramp(0, 10)} - ${ramp(0.30, 14)})` }}
         >
           {V2.lookUp.seen[0]}<br />{V2.lookUp.seen[1]}<br />{V2.lookUp.seen[2]}
         </p>
 
         <p
           className="s20-now"
-          style={{ opacity: `calc(${ramp(0.3, 8)} - ${ramp(0.5, 7)})` }}
+          style={{ opacity: `calc(${ramp(0.30, 14)} - ${ramp(0.64, 14)})` }}
         >
           {V2.lookUp.now[0]}<br />{V2.lookUp.now[1]}
         </p>

@@ -32,7 +32,7 @@ export function Close() {
     return () => io.disconnect()
   }, [])
 
-  const clear = ramp(0.78, 9)
+  const clear = ramp(0.78, 12)
 
   return (
     <Scene track={235} label="२१ समारोप" className="s21">
@@ -65,7 +65,7 @@ export function Close() {
         <div
           ref={endRef}
           className="s21-morya"
-          style={{ opacity: ramp(0.84, 9), transform: `scale(calc(.9 + ${ramp(0.84, 9)} * .1))` }}
+          style={{ opacity: ramp(0.78, 12), transform: `scale(calc(.9 + ${ramp(0.78, 12)} * .1))` }}
         >
           <h2>{V2.close.morya}</h2>
         </div>
