@@ -33,7 +33,20 @@ jobs:
 
       - run: npm ci
 
+      # Re-encoding the photographs is ~129s of a ~165s deploy: thirty images
+      # at up to four widths in three formats, and AVIF is slow. They change
+      # very rarely, so cache the output and key it on the only two things
+      # that can invalidate it — the originals themselves, and the encoder
+      # settings in the pipeline script.
+      - name: Cache image derivatives
+        id: derived
+        uses: actions/cache@v4
+        with:
+          path: public/img/derived
+          key: derived-${{ hashFiles('img-source/**', 'scripts/process-assets.mjs') }}
+
       - name: Process photographs
+        if: steps.derived.outputs.cache-hit != 'true'
         run: npm run assets
 
       - name: Build
