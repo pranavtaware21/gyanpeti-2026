@@ -27,6 +27,7 @@ export function GazeStops() {
             sizes="100vw"
             className="s10-img"
           />
+          <div className="s10-lift" aria-hidden="true" />
         </div>
         <div className="s10-scrim" aria-hidden="true" />
 

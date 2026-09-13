@@ -411,7 +411,28 @@
 
 .s10-plate { position: absolute; inset: 0; }
 .s10-plate .img, .s10-plate .img img { height: 100%; }
-.s10-img img { filter: brightness(calc(.5 + var(--q, 0) * .38)) contrast(1.1); }
+/*
+  The light coming up on the carving is a scrim fading out, not an animated
+  filter.
+
+  `filter: brightness()` cannot run on the compositor: changing it re-filters
+  every pixel of a full-screen photograph on the main thread, every frame.
+  It was the only per-frame filter left in the piece and the most expensive
+  operation in it — invisible on a desktop, and exactly the kind of thing that
+  stutters on a cheap phone in a mandap, which is the only device that matters
+  here.
+
+  A black overlay at opacity o darkens by the same factor as brightness(1-o),
+  so this is the same image, and opacity is composited on the GPU.
+  brightness .5 → .88 is scrim opacity .5 → .12.
+*/
+.s10-img img { filter: contrast(1.1); }
+.s10-lift {
+  position: absolute; inset: 0;
+  background: #000;
+  opacity: calc(.5 - var(--q, 0) * .38);
+  pointer-events: none;
+}
 .s10-scrim {
   position: absolute; inset: 0;
   background: linear-gradient(oklch(10% 0.014 40 / .7), transparent 40%, oklch(10% 0.014 40 / .94));
