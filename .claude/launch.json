@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "gyanpeti-v2",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vite", "--host", "--port", "5210", "--strictPort"],
+      "port": 5210,
+      "autoPort": true
+    }
+  ]
+}

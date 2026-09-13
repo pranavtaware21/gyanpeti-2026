@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="mr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0d0906" />
+    <meta name="color-scheme" content="dark" />
+    <title>ज्ञान पेटी बाप्पा माझा — २०२६</title>
+    <meta name="description" content="१५ वर्षांचा गणपती उत्सव. दातेगडापासून ११ मारुतींपर्यंत — आमच्या सजावटीमागची गोष्ट." />
+
+    <meta property="og:title" content="ज्ञान पेटी बाप्पा माझा — २०२६" />
+    <meta property="og:description" content="सजावट बघितली. आता तिच्यामागची गोष्ट ऐका." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pranavtaware21.github.io/gyanpeti-2026/" />
+    <meta property="og:image" content="https://pranavtaware21.github.io/gyanpeti-2026/img/og.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Anek+Devanagari:wght@200..800&family=Tiro+Devanagari+Marathi&display=swap"
+    />
+
+    <style>
+      /* First paint. The screen must be basalt-dark before any JS runs — a
+         white flash would break the very first second of the experience, and
+         on a phone in a lit mandap it is the brightest thing in the room. */
+      html, body { min-height: 100%; margin: 0; background: #0d0906; }
+      #root { min-height: 100%; }
+      body { overscroll-behavior: none; }
+      #boot {
+        position: fixed; inset: 0; display: grid; place-items: center;
+        background: #0d0906; color: #b9a17a; z-index: 999;
+        font: 400 0.8rem/1 system-ui, sans-serif; letter-spacing: 0.3em;
+      }
+      #boot span { animation: bp 2.4s ease-in-out infinite; }
+      @keyframes bp { 0%,100% { opacity: .25 } 50% { opacity: .7 } }
+      @media (prefers-reduced-motion: reduce) { #boot span { animation: none } }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="boot"><span>॥ श्री ॥</span></div>
+    <noscript>
+      <div style="color:#e9e0d2;font-family:system-ui;padding:2rem;line-height:1.7">
+        <p>ही अनुभूती पाहण्यासाठी JavaScript सुरू करा.</p>
+        <p style="opacity:.6">Please enable JavaScript to view this experience.</p>
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

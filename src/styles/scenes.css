@@ -1,0 +1,1072 @@
+/*
+  The twenty-one scenes.
+
+  Classes are numbered to match the design source's own scene comments, so any
+  scene can be diffed against it without first working out which block is
+  which. Anything keyed to --q or --p is written inline in the component,
+  because those are per-instance expressions; everything static lives here.
+*/
+
+/* ── the column ─────────────────────────────────────────────────────── */
+
+.shaft {
+  width: 100%;
+  max-width: var(--col);
+  margin: 0 auto;
+  position: relative;
+  overflow-x: clip;
+}
+
+.scene { position: relative; }
+
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* Prose beats that hand over on one spot. */
+.seq { position: relative; }
+.seq > .beat { position: absolute; left: 0; right: 0; top: 0; }
+
+/* ── the progress hairline ──────────────────────────────────────────── */
+
+.rule {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  z-index: 60;
+  background: var(--kagad-07);
+}
+.rule-fill {
+  height: 2px;
+  width: calc(var(--g, 0) * 100%);
+  background: linear-gradient(90deg, var(--shendur), var(--haldi));
+}
+
+/* ── shared marks ───────────────────────────────────────────────────── */
+
+.is-accent { color: var(--shendur); }
+.num { font-family: var(--f-read); font-feature-settings: 'tnum'; font-style: normal; }
+
+/* ── 01 ॥ श्री ॥ ────────────────────────────────────────────────────── */
+
+.s01-stage { display: flex; align-items: center; justify-content: center; }
+.s01-ring, .s01-glow {
+  position: absolute;
+  width: 250px; height: 250px;
+  border-radius: 50%;
+}
+.s01-ring {
+  mask: radial-gradient(closest-side, transparent 70%, #000 71%);
+  -webkit-mask: radial-gradient(closest-side, transparent 70%, #000 71%);
+}
+.s01-glow { background: radial-gradient(closest-side, oklch(63% 0.213 38 / .3), transparent 72%); }
+.s01-mark { position: relative; text-align: center; }
+.s01-mark h1 {
+  font-family: var(--f-read);
+  font-size: 34px;
+  color: var(--kagad);
+}
+.s01-hint {
+  position: absolute; bottom: 6dvh; left: 0; right: 0;
+  text-align: center;
+  font-size: 11.5px; letter-spacing: .24em;
+  color: oklch(94% 0.018 84 / .7);
+}
+
+/* ── 02 १५ वर्षे ────────────────────────────────────────────────────── */
+
+.s02-stage {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 0 var(--gut);
+}
+.s02-halo {
+  position: absolute;
+  width: 290px; height: 290px;
+  border-radius: 50%;
+  border: 1px solid oklch(83% 0.150 86 / .3);
+}
+.s02-digits {
+  position: relative;
+  display: flex;
+  font-family: var(--f-read);
+  font-size: min(38vw, 160px);
+  line-height: 1;
+  color: var(--haldi);
+  font-feature-settings: 'tnum';
+}
+.s02-digits span { display: block; }
+.s02-head {
+  position: relative; margin-top: 4px; text-align: center;
+  font-family: var(--f-disp);
+  font-size: min(9.5vw, 38px); line-height: 1.2;
+}
+.s02-lines {
+  position: absolute; left: var(--gut); right: var(--gut); top: 50%;
+  font-family: var(--f-read);
+  font-size: 17.5px; line-height: 1.95;
+  color: var(--kagad);
+}
+.s02-line { position: static; }
+
+/* ── 03 ओळख ─────────────────────────────────────────────────────────── */
+
+.s03-stage {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 var(--gut);
+}
+.s03-wash {
+  position: absolute; inset: 0;
+  background: radial-gradient(62% 44% at 24% 34%, oklch(63% 0.213 38 / .22), transparent 72%);
+}
+.s03-lead {
+  position: relative;
+  font-family: var(--f-read); font-size: 18px; line-height: 1.9;
+  color: var(--kagad-90);
+}
+.s03-title { position: relative; margin-top: 20px; }
+.s03-clip { display: block; overflow: hidden; }
+.s03-clip > span {
+  display: block;
+  font-family: var(--f-disp);
+  font-size: min(15vw, 62px); line-height: 1.04;
+}
+.s03-year {
+  position: relative; margin-top: 22px;
+  display: flex; align-items: center; gap: 14px;
+  font-family: var(--f-read); font-size: 26px;
+  color: var(--haldi); font-feature-settings: 'tnum';
+}
+.s03-rule { height: 1px; background: var(--haldi-45); }
+.s03-tail {
+  position: relative; margin-top: 20px;
+  font-family: var(--f-read); font-size: 17px;
+}
+
+/* ── 04 कथा ─────────────────────────────────────────────────────────── */
+
+.s04-stage {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 var(--gut);
+}
+.s04-rule { height: 1px; background: var(--haldi); opacity: .45; }
+.s04-a {
+  margin-top: 28px;
+  font-family: var(--f-disp);
+  font-size: min(8vw, 32px); line-height: 1.4;
+}
+.s04-b {
+  position: absolute; left: var(--gut); right: var(--gut); top: 44%;
+  font-family: var(--f-disp);
+  font-size: min(13vw, 54px); line-height: 1.15;
+  color: var(--haldi);
+}
+.s04-c {
+  position: absolute; left: var(--gut); right: var(--gut); top: 48%;
+  font-family: var(--f-read); font-size: 20px; line-height: 1.8;
+}
+
+/* ── 05 प्रवास ──────────────────────────────────────────────────────── */
+
+.s05-stage {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 var(--gut);
+}
+.s05-ground { position: absolute; inset: 0; }
+.s05-ground .img, .s05-ground .img img { height: 100%; }
+.s05-ground img { filter: grayscale(.5) contrast(1.1) brightness(.6); }
+.s05-lines {
+  position: relative;
+  font-family: var(--f-read);
+  font-size: min(6.6vw, 26px); line-height: 1.9;
+}
+.s05-lines > * + * { margin-top: 10px; }
+.s05-credit {
+  position: absolute; left: var(--gut); right: var(--gut); bottom: 5dvh;
+  font-size: 11px; color: oklch(94% 0.018 84 / .62);
+}
+.s05-place {
+  position: relative; margin-top: 34px;
+  font-family: var(--f-disp);
+  font-size: min(19vw, 78px); line-height: 1;
+  color: var(--haldi);
+}
+
+/* ── 06 दातेगड ──────────────────────────────────────────────────────── */
+
+.s06-stage { display: flex; flex-direction: column; justify-content: center; }
+.s06-plate { height: 42dvh; overflow: hidden; }
+.s06-plate-inner { height: 100%; }
+.s06-plate .img, .s06-plate .img img { height: 100%; }
+.s06-body {
+  padding: 0 18px; margin: 18px 0 0;
+  font-family: var(--f-read); font-size: 17.5px; line-height: 1.9;
+}
+.s06-facts {
+  padding: 0 18px; margin-top: 20px;
+  display: flex; align-items: flex-end; gap: 14px;
+}
+.s06-height {
+  font-family: var(--f-read); font-size: 40px; line-height: .9;
+  color: var(--haldi); font-feature-settings: 'tnum';
+}
+.s06-unit {
+  font-family: var(--f-read); font-size: 14px;
+  color: var(--kagad-85); padding-bottom: 5px;
+}
+.s06-where {
+  flex: 1; text-align: right;
+  font-family: var(--f-read); font-size: 15px; line-height: 1.5;
+}
+.s06-hanuman {
+  padding: 0 18px; margin: 14px 0 0;
+  font-family: var(--f-read); font-size: 16.5px; line-height: 1.8;
+}
+.s06-credit {
+  padding: 0 18px; margin-top: 10px;
+  font-size: 11px; color: oklch(94% 0.018 84 / .7);
+}
+
+/* ── 07 २९ पायऱ्या ──────────────────────────────────────────────────── */
+
+.s07-stage { display: flex; flex-direction: column; }
+.s07-frame { position: relative; flex: 1; overflow: hidden; }
+.s07-plate { position: absolute; inset: 0; }
+.s07-plate .img, .s07-plate .img img { height: 100%; }
+.s07-rail {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; background: var(--kagad-16);
+}
+.s07-rail-fill { width: 3px; background: linear-gradient(var(--shendur), var(--haldi)); }
+.s07-count {
+  position: absolute; right: 14px; top: 14px;
+  font-family: var(--f-read); font-size: 88px; line-height: 1;
+  color: var(--kagad); font-feature-settings: 'tnum';
+  transform-origin: right top;
+}
+.s07-well {
+  flex: none;
+  padding: 20px 18px 26px; min-height: 34dvh;
+  font-family: var(--f-read); font-size: 18px; line-height: 1.85;
+}
+
+/* ── 08 दोन रूपं ────────────────────────────────────────────────────── */
+
+.s08-stage {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 var(--gut);
+}
+.s08-ground { position: absolute; inset: 0; }
+.s08-ground .img, .s08-ground .img img { height: 100%; }
+.s08-ground img { filter: contrast(1.08) brightness(.7); }
+.s08-scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(oklch(10% 0.014 40 / .82), oklch(10% 0.014 40 / .5) 40%, oklch(10% 0.014 40 / .92));
+}
+.s08-pair {
+  position: relative;
+  font-family: var(--f-disp);
+  font-size: min(14vw, 58px); line-height: 1.15;
+}
+.s08-pair > * + * { margin-top: 6px; }
+.s08-lead {
+  position: relative; margin: 26px 0 0;
+  font-family: var(--f-read); font-size: 19px; line-height: 1.9;
+}
+.s08-cards { position: relative; margin-top: 26px; display: flex; gap: 14px; }
+.s08-card {
+  flex: 1; min-height: 118px;
+  border: 1px solid var(--haldi-32);
+  border-radius: 4px;
+  text-align: left;
+}
+.s08-card--photo {
+  position: relative; overflow: hidden; padding: 0;
+  border-color: oklch(83% 0.150 86 / .4);
+  cursor: zoom-in;
+}
+.s08-card--photo .img { position: absolute; inset: 0; }
+.s08-caption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 10px 12px;
+  background: linear-gradient(transparent, oklch(10% 0.014 40 / .9));
+  font-family: var(--f-disp); font-size: 24px;
+}
+.s08-tail {
+  position: relative; margin: 16px 0 0;
+  font-family: var(--f-read); font-size: 15.5px;
+  color: var(--kagad-85);
+}
+
+/* ── 09 सूर्य ───────────────────────────────────────────────────────── */
+
+.s09-stage {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 18px;
+}
+.s09-wash {
+  position: absolute; inset: 0;
+  background: radial-gradient(66% 42% at 80% 16%, oklch(63% 0.213 38 / .2), transparent 72%);
+}
+.s09-lines { position: relative; min-height: 108px; }
+.s09-lines > p {
+  position: absolute; left: 0; right: 0; margin: 0;
+  font-family: var(--f-read); font-size: 19px; line-height: 1.9;
+}
+.s09-lines > p + p { top: 54px; }
+
+/*
+  isolation is load-bearing.
+
+  The warm layers below are mix-blend-mode, which composites against whatever
+  is behind the element — and with no stacking context of its own that is the
+  whole page, so the sunset tint leaked out of the photograph and turned the
+  entire scene orange, text block included. `isolate` confines the blend to
+  this plate. Do not remove it.
+*/
+.s09-plate {
+  display: block; width: 100%; margin-top: 18px; padding: 0;
+  position: relative; overflow: hidden;
+  isolation: isolate;
+  border: 1px solid oklch(83% 0.150 86 / .26);
+  border-radius: 4px;
+  cursor: zoom-in;
+}
+.s09-plate img { filter: brightness(.82) saturate(1.02); }
+.s09-shade, .s09-tint, .s09-bloom { position: absolute; inset: 0; pointer-events: none; }
+.s09-shade--dawn {
+  background: linear-gradient(to left, oklch(14% 0.020 250 / .62), oklch(14% 0.020 250 / .1) 52%, transparent 78%);
+  opacity: calc(1 - var(--sun));
+}
+.s09-shade--dusk {
+  background: linear-gradient(to right, oklch(14% 0.020 250 / .62), oklch(14% 0.020 250 / .1) 52%, transparent 78%);
+  opacity: var(--sun);
+}
+/*
+  Warm light falls as a pool, not a curtain: sun reaching a rock-cut chamber
+  comes through one opening. Kept well under the design's original alpha —
+  at .95 over a photograph this saturated the carving disappeared into the
+  wash entirely.
+*/
+.s09-tint--dawn {
+  mix-blend-mode: soft-light;
+  background: radial-gradient(38% 62% at 22% 46%, oklch(92% 0.110 92 / .62), transparent 72%);
+  opacity: calc(1 - var(--sun));
+}
+.s09-tint--dusk {
+  mix-blend-mode: soft-light;
+  background: radial-gradient(38% 62% at 80% 46%, oklch(70% 0.180 44 / .62), transparent 72%);
+  opacity: var(--sun);
+}
+.s09-bloom {
+  mix-blend-mode: screen;
+  background: radial-gradient(20% 32% at calc(22% + var(--sun) * 58%) 44%, oklch(90% 0.120 calc(88 - var(--sun) * 44) / .3), transparent 70%);
+}
+
+/* The sun's travel, reported rather than offered. */
+.s09-arc { position: relative; height: 44px; margin-top: 10px; display: flex; align-items: center; }
+.s09-arc-rail { position: absolute; left: 0; right: 0; height: 1px; background: var(--haldi-32); }
+.s09-arc-sun {
+  position: absolute; left: calc(var(--sun) * 100%);
+  translate: -50% 0;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: oklch(calc(88% - var(--sun) * 18%) calc(0.130 + var(--sun) * 0.06) calc(88 - var(--sun) * 44));
+  box-shadow: 0 0 calc(10px + var(--sun) * 14px) oklch(83% 0.150 86 / .5);
+}
+
+.s09-labels { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 4px; }
+.s09-labels .is-right { text-align: right; }
+.s09-when { font-family: var(--f-read); font-size: 17px; }
+.s09-when.is-dawn { color: var(--haldi); opacity: calc(.34 + (1 - var(--sun)) * .66); }
+.s09-when.is-dusk { color: var(--shendur); opacity: calc(.34 + var(--sun) * .66); }
+.s09-on { margin-top: 2px; font-family: var(--f-read); font-size: 13px; }
+.s09-on.is-dawn { opacity: calc((1 - var(--sun)) * (1 - var(--sun))); }
+.s09-on.is-dusk { opacity: calc(var(--sun) * var(--sun)); }
+.s09-close {
+  margin: 18px 0 0; padding-top: 16px;
+  border-top: 1px solid var(--haldi-28);
+  font-family: var(--f-read); font-size: 17.5px; line-height: 1.9;
+}
+
+/* ── 10 मारुती ──────────────────────────────────────────────────────── */
+
+.s10-plate { position: absolute; inset: 0; }
+.s10-plate .img, .s10-plate .img img { height: 100%; }
+.s10-img img { filter: brightness(calc(.5 + var(--q, 0) * .38)) contrast(1.1); }
+.s10-scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(oklch(10% 0.014 40 / .7), transparent 40%, oklch(10% 0.014 40 / .94));
+}
+.s10-lead {
+  position: absolute; left: var(--gut); right: var(--gut); top: 10dvh;
+  font-family: var(--f-read); font-size: 18px; line-height: 1.9;
+}
+.s10-foot { position: absolute; left: var(--gut); right: var(--gut); bottom: 11dvh; }
+.s10-name {
+  font-family: var(--f-disp);
+  font-size: min(17vw, 70px); line-height: 1;
+  color: var(--haldi);
+}
+.s10-foot p {
+  margin: 18px 0 0;
+  font-family: var(--f-read); font-size: 17.5px; line-height: 1.9;
+}
+.s10-foot p + p { margin-top: 12px; color: var(--haldi); }
+
+/* ── 11 एक → अकरा ───────────────────────────────────────────────────── */
+
+.s11-stage {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.s11-plate {
+  position: relative;
+  width: 158px; height: 212px;
+  border: 1px solid oklch(83% 0.150 86 / .3);
+  border-radius: 4px; overflow: hidden;
+}
+.s11-num {
+  position: absolute;
+  font-family: var(--f-read); font-size: 166px; line-height: 1;
+  color: var(--haldi); font-feature-settings: 'tnum';
+}
+.s11-top {
+  position: absolute; left: var(--gut); right: var(--gut); top: 12dvh;
+  text-align: center;
+  font-family: var(--f-read); font-size: 18px; line-height: 1.9;
+}
+.s11-bottom {
+  position: absolute; left: var(--gut); right: var(--gut); bottom: 10dvh;
+  text-align: center;
+  font-family: var(--f-read); font-size: 17.5px; line-height: 1.9;
+}
+.s11-final { font-family: var(--f-disp); font-size: 34px; color: var(--kagad); }
+.s11-final i { font-family: var(--f-read); font-style: normal; font-feature-settings: 'tnum'; }
+
+/* ── 12 अकरा ────────────────────────────────────────────────────────── */
+
+.s12-stage { display: flex; flex-direction: column; justify-content: center; }
+.s12-calls { position: relative; height: 32px; padding: 0 18px; }
+.s12-call {
+  position: absolute; left: 18px; right: 18px;
+  font-family: var(--f-read); font-size: 17px;
+  color: var(--haldi);
+}
+.s12-rail-clip { margin-top: 18px; overflow: hidden; }
+.s12-rail { display: flex; gap: 12px; padding-left: 18px; width: max-content; }
+.s12-card { flex: none; width: 184px; display: block; text-align: left; }
+.s12-card-plate {
+  display: block; height: 246px;
+  border: 1px solid var(--haldi-24);
+  border-radius: 4px; overflow: hidden;
+}
+.s12-card-plate .img { height: 100%; }
+.s12-card-head { margin-top: 9px; display: flex; align-items: baseline; gap: 8px; }
+.s12-card-head i {
+  font-family: var(--f-read); font-style: normal;
+  font-size: 16px; color: var(--haldi); font-feature-settings: 'tnum';
+}
+.s12-card-head b {
+  font-family: var(--f-disp); font-weight: 400;
+  font-size: 19px; line-height: 1.15;
+}
+.s12-card-place {
+  display: block; margin-top: 3px;
+  font-family: var(--f-read); font-size: 12.5px;
+  color: var(--kagad-72);
+}
+.s12-progress { margin: 18px 18px 0; height: 1px; background: var(--kagad-14); }
+.s12-progress > div { height: 1px; background: var(--haldi); }
+.s12-hint {
+  margin: 10px 18px 0;
+  font-size: 11.5px; letter-spacing: .18em;
+  color: var(--kagad-78);
+}
+
+/* ── 13 एकच धागा ────────────────────────────────────────────────────── */
+
+.s13-stage {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 var(--gut);
+}
+.s13-stanza { font-family: var(--f-disp); font-size: min(9.5vw, 38px); line-height: 1.35; }
+.s13-lead { margin: 24px 0 0; font-family: var(--f-read); font-size: 18px; line-height: 1.9; }
+.s13-name {
+  margin-top: 10px;
+  font-family: var(--f-disp);
+  font-size: min(15vw, 60px); line-height: 1.05;
+  color: var(--haldi);
+}
+.s13-facts { margin-top: 26px; padding-top: 16px; border-top: 1px solid var(--haldi-28); }
+.s13-span, .s13-tail {
+  font-family: var(--f-read); font-size: 17.5px; line-height: 1.9;
+  font-feature-settings: 'tnum';
+}
+.s13-tail { margin-top: 8px; }
+.s13-districts {
+  margin-top: 14px;
+  font-size: 11.5px; letter-spacing: .16em;
+  color: var(--kagad-78); font-feature-settings: 'tnum';
+}
+
+/* ── 14 ११च का ──────────────────────────────────────────────────────── */
+
+.s14-stage {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 var(--gut);
+}
+.s14-ghost {
+  position: absolute; right: -10px; top: 14dvh;
+  font-family: var(--f-read);
+  font-size: min(52vw, 220px); line-height: .8;
+  color: var(--haldi-11); font-feature-settings: 'tnum';
+}
+.s14-lead { position: relative; margin: 0; font-family: var(--f-read); font-size: 18px; line-height: 1.9; }
+.s14-q {
+  position: relative; margin-top: 16px;
+  font-family: var(--f-disp);
+  font-size: min(19vw, 76px); line-height: 1;
+  color: var(--haldi);
+}
+.s14-q i { font-family: var(--f-read); font-style: normal; font-feature-settings: 'tnum'; }
+.s14-stage > p { position: relative; margin: 12px 0 0; font-family: var(--f-read); font-size: 17.5px; line-height: 1.9; }
+.s14-q + p { margin-top: 26px; }
+
+/* ── 15 अर्पण ───────────────────────────────────────────────────────── */
+
+.s15-stage {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.s15-wash {
+  position: absolute; inset: -14%;
+  background: radial-gradient(42% 30% at 50% 46%, oklch(63% 0.213 38 / .2), transparent 72%);
+}
+.s15-top {
+  position: absolute; left: var(--gut); right: var(--gut); top: 9dvh;
+  text-align: center;
+  font-family: var(--f-read); font-size: 17px; line-height: 1.9;
+}
+.s15-forms {
+  position: relative; height: 214px; width: 100%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--haldi);
+}
+.s15-words { position: relative; height: 56px; width: 100%; text-align: center; }
+.s15-words > div {
+  position: absolute; left: 0; right: 0;
+  font-family: var(--f-disp); font-size: 36px;
+}
+.s15-by {
+  position: absolute; left: var(--gut); right: var(--gut); bottom: 8dvh;
+  text-align: center;
+  font-family: var(--f-read); font-size: 16px; line-height: 1.85;
+  color: oklch(94% 0.018 84 / .88);
+}
+
+/* ── 16 ज्ञान पेटी — the inversion ───────────────────────────────────── */
+
+/* No flat fill: the viewport-fixed ground shows through until the paper opens. */
+.s16-paper { position: absolute; inset: 0; background: var(--kagad); }
+.s16-body {
+  position: absolute; inset: 0;
+  padding: 44px var(--gut);
+  display: flex; flex-direction: column; justify-content: center;
+  color: var(--paper-ink);
+}
+.s16-body .beat { font-family: var(--f-read); font-size: 18px; line-height: 1.95; }
+.s16-body b { font-weight: 400; color: var(--paper-accent); }
+.s16-becomes { font-family: var(--f-read); font-size: 17px; line-height: 1.9; }
+.s16-offering {
+  margin-top: 6px;
+  font-family: var(--f-disp);
+  font-size: min(11vw, 44px); line-height: 1.1;
+}
+.s16-therefore {
+  margin-top: 18px; padding-top: 14px;
+  border-top: 1px solid var(--paper-rule);
+  font-family: var(--f-read); font-size: 16.5px; line-height: 1.85;
+}
+.s16-name {
+  margin-top: 6px;
+  font-family: var(--f-disp);
+  font-size: min(10vw, 40px); line-height: 1.1;
+  color: var(--paper-accent);
+}
+
+.s16-deck {
+  position: absolute; left: 0; right: 0; bottom: 5dvh;
+  height: 212px;
+  pointer-events: none;
+}
+.s16-card {
+  position: absolute;
+  width: 23%; padding: 4px;
+  background: oklch(99% 0.008 84);
+  border: 1px solid oklch(24% 0.030 45 / .16);
+  box-shadow: 0 3px 12px oklch(24% 0.030 45 / .22);
+  pointer-events: auto; cursor: zoom-in;
+}
+.s16-card .img { aspect-ratio: 3 / 2; height: auto; }
+.s16-card .slot { border-color: oklch(24% 0.030 45 / .4); padding: 6px 8px; }
+.s16-card .slot-label, .s16-card .slot-id { color: oklch(38% 0.060 44); font-size: 9px; }
+
+/* ── 17 भविष्य — still on paper ─────────────────────────────────────── */
+
+.s17 { background: var(--kagad); }
+.s17-stage { background: var(--kagad); }
+.s17-path { position: absolute; left: 0; right: 0; top: 8dvh; bottom: 34dvh; }
+.s17-rule { position: absolute; left: 26px; top: 0; width: 1px; background: var(--paper-rule); }
+.s17-word {
+  position: absolute;
+  font-family: var(--f-disp); font-size: 36px;
+  color: var(--paper-ink);
+}
+.s17-word.is-last { font-size: 40px; color: oklch(46% 0.170 42); }
+.s17-well {
+  position: absolute; left: var(--gut); right: var(--gut); bottom: 8dvh;
+  color: var(--paper-ink-soft);
+  font-family: var(--f-read); font-size: 17px; line-height: 1.9;
+}
+.s17-close { font-size: 18.5px; }
+/*
+  The circle that closes the paper back to the dark. It repaints the ground
+  rather than a flat --deep — fixed attachment means it lines up exactly with
+  the field on either side of it, so the scene returns to basalt with no edge.
+*/
+.s17-shut {
+  position: absolute; inset: 0;
+  background-color: var(--deep);
+  background-image: var(--ground-image);
+  background-attachment: fixed, fixed;
+  background-size: var(--ground-size);
+}
+
+/* ── 18 एका ठिकाणी ──────────────────────────────────────────────────── */
+
+.s18-stage {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 var(--gut);
+}
+.s18-lead { margin: 0; font-family: var(--f-read); font-size: 18px; line-height: 1.95; }
+.s18-body {
+  position: absolute; left: var(--gut); right: var(--gut); top: 32%;
+  font-family: var(--f-read); font-size: 18px; line-height: 2;
+}
+.s18-body > * + * { margin-top: 8px; }
+.s18-here {
+  margin-top: 20px !important;
+  font-family: var(--f-disp); font-size: 30px; line-height: 1.25;
+  color: var(--haldi);
+}
+.s18-tail { margin-top: 4px !important; font-size: 17px; }
+.s18-here + .s18-tail { margin-top: 16px !important; }
+
+/* ── 19 रचना ────────────────────────────────────────────────────────── */
+
+.s19-stage { display: flex; flex-direction: column; justify-content: center; }
+.s19-wash {
+  position: absolute; inset: -18%;
+  background: radial-gradient(44% 30% at 50% 42%, oklch(63% 0.213 38 / .28), transparent 72%);
+}
+.s19-field { position: relative; width: 100%; }
+.s19-main {
+  position: absolute; left: 50%;
+  width: 130px; height: 172px; z-index: 5;
+  border: 1px solid var(--haldi-45);
+  border-radius: 4px; overflow: hidden;
+}
+.s19-node {
+  position: absolute;
+  width: 52px; height: 70px;
+  border: 1px solid var(--haldi-32);
+  border-radius: 3px; overflow: hidden;
+  padding: 0;
+}
+.s19-main .img, .s19-node .img { height: 100%; }
+.s19-foot { position: relative; margin-top: 8px; text-align: center; padding: 0 20px; }
+.s19-lead { font-family: var(--f-read); font-size: 17px; color: oklch(94% 0.018 84 / .88); }
+.s19-main-label {
+  margin-top: 6px;
+  font-family: var(--f-disp); font-size: 34px; line-height: 1.2;
+  color: var(--haldi);
+}
+
+
+/* ── 20 वर पहा ──────────────────────────────────────────────────────── */
+
+.s20-stage {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 26px;
+}
+.s20-wash {
+  position: absolute; inset: -20%;
+  background: radial-gradient(46% 32% at 50% 50%, oklch(63% 0.213 38 / .3), transparent 72%);
+}
+.s20-seen {
+  position: relative; margin: 0;
+  font-family: var(--f-read); font-size: 17.5px; line-height: 1.95;
+}
+.s20-now {
+  position: absolute; left: 26px; right: 26px; top: 38%; margin: 0;
+  font-family: var(--f-read); font-size: 19px; line-height: 1.9;
+}
+.s20-look {
+  position: absolute; left: 26px; right: 26px; top: 32%; margin: 0;
+  text-align: center;
+  font-family: var(--f-disp);
+  font-size: min(11vw, 44px); line-height: 1.32;
+  text-wrap: pretty;
+}
+
+/* ── 21 समारोप ──────────────────────────────────────────────────────── */
+
+.s21-stage {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 26px;
+}
+.s21-lead { margin: 0; font-family: var(--f-read); font-size: 17.5px; line-height: 1.95; }
+.s21-body { position: absolute; left: 26px; right: 26px; top: 24%; }
+.s21-youll { font-family: var(--f-read); font-size: 17px; line-height: 1.9; }
+.s21-strands { margin-top: 12px; font-family: var(--f-disp); font-size: 28px; line-height: 1.35; }
+.s21-and { margin-top: 20px; font-family: var(--f-read); font-size: 17px; }
+.s21-name {
+  margin-top: 8px;
+  font-family: var(--f-disp);
+  font-size: min(10.5vw, 42px); line-height: 1.12;
+  color: var(--haldi);
+}
+.s21-name i { font-family: var(--f-read); font-style: normal; font-feature-settings: 'tnum'; }
+.s21-morya {
+  position: absolute; left: 26px; right: 26px; top: 0; bottom: 0;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+}
+.s21-morya h2 {
+  font-family: var(--f-disp);
+  font-size: min(12.5vw, 50px); line-height: 1.2;
+  color: var(--shendur);
+}
+
+
+/* ── overlays ───────────────────────────────────────────────────────── */
+
+.sheet {
+  position: fixed; inset: 0; z-index: 80;
+  background: var(--scrim);
+  display: flex; align-items: flex-end; justify-content: center;
+}
+.sheet-scrim { position: absolute; inset: 0; cursor: pointer; }
+.sheet-card {
+  position: relative;
+  width: 100%; max-width: var(--col);
+  max-height: 74dvh; overflow-y: auto;
+  background: var(--deep);
+  border-top: 1px solid oklch(83% 0.150 86 / .35);
+  border-radius: 8px 8px 0 0;
+  padding: 12px 18px calc(22px + var(--safe-b));
+}
+.sheet-nav {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+}
+.sheet-step {
+  width: 40px; height: 40px; border-radius: 999px;
+  border: 1px solid oklch(83% 0.150 86 / .4);
+  color: var(--kagad); font-size: 18px; line-height: 1;
+}
+.sheet-step:hover { background: oklch(83% 0.150 86 / .12); }
+.sheet-count {
+  font-family: var(--f-read); font-size: 14px;
+  color: oklch(94% 0.018 84 / .8); font-feature-settings: 'tnum';
+}
+/*
+  The whole photograph, not a cropped band.
+
+  This used to clip to 34dvh, which cut the base off most of the eleven — on
+  several of them that is where the seated figure at the murti's feet is. The
+  image now fits inside its box instead of filling it, so nothing is lost
+  before the visitor even decides whether to enlarge it.
+*/
+.sheet-photo {
+  display: block; width: 100%;
+  margin-top: 12px;
+  cursor: zoom-in;
+  border: 1px solid var(--haldi-24);
+  border-radius: 4px; overflow: hidden;
+  background: oklch(16% 0.024 42);
+}
+/*
+  Height-led, not width-led.
+
+  The aspect box already carries the photograph's true ratio, so nothing is
+  cropped once the old max-height clip is gone — but at the sheet's full width
+  a portrait murti runs past 500px and pushes the माहिती off screen. Driving
+  from height and letting width follow keeps the whole frame visible and the
+  sentence under it.
+
+  Do not replace this with `aspect-ratio: auto`: that ratio is the only thing
+  reserving the box's height before the image loads, and removing it collapses
+  the photograph to nothing.
+*/
+.sheet-photo .img {
+  height: 42dvh;
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.sheet-head { margin-top: 14px; display: flex; align-items: baseline; gap: 10px; }
+.sheet-n { font-family: var(--f-read); font-size: 24px; color: var(--haldi); font-feature-settings: 'tnum'; }
+.sheet-name { font-family: var(--f-disp); font-size: 27px; line-height: 1.15; }
+.sheet-place { margin-top: 5px; font-family: var(--f-read); font-size: 15px; color: oklch(94% 0.018 84 / .8); }
+.sheet-year {
+  margin-top: 12px; display: inline-flex;
+  padding: 7px 12px;
+  border: 1px solid var(--haldi-32); border-radius: 4px;
+  font-family: var(--f-read); font-size: 14px;
+  color: var(--haldi); font-feature-settings: 'tnum';
+}
+.sheet-info { margin: 16px 0 0; font-family: var(--f-read); font-size: 16.5px; line-height: 1.85; }
+.sheet-card .slot { margin-top: 16px; }
+.sheet-close {
+  margin-top: 16px; width: 100%; min-height: 46px;
+  border: 1px solid var(--haldi-45); border-radius: 4px;
+  color: var(--kagad); font-family: var(--f-read); font-size: 16px;
+}
+.sheet-close:hover { background: oklch(83% 0.150 86 / .12); }
+
+.zoom {
+  position: fixed; inset: 0; z-index: 90;
+  background: var(--scrim-hard);
+  display: flex; align-items: center; justify-content: center;
+  padding: 18px; cursor: zoom-out;
+}
+.zoom img { max-width: 100%; max-height: 88dvh; border: 1px solid oklch(83% 0.150 86 / .3); }
+
+.gap {
+  border: 1px dashed var(--haldi-45);
+  border-radius: 4px;
+  padding: 11px 14px;
+  display: flex; flex-direction: column; gap: 5px;
+}
+.gap-label { font-family: var(--f-ui); font-size: 11.5px; letter-spacing: .14em; color: var(--haldi); }
+.gap-note { font-family: var(--f-read); font-size: 13.5px; line-height: 1.5; color: var(--kagad-72); }
+.gap-id { font-family: ui-monospace, monospace; font-size: 10.5px; color: oklch(94% 0.018 84 / .5); }
+.s19-foot .gap { margin-top: 14px; text-align: left; }
+
+/*
+  ── the wide composition ──────────────────────────────────────────────
+
+  Not the phone layout stretched. On a wide screen the reading column stops
+  being the whole screen and becomes one half of it: the photographic scenes
+  split into plate and text, the eleven stop being a rail you drag and become
+  a band you scan, and the ring in scene 19 opens to a radius that reads as an
+  arrangement you are standing in front of rather than a badge. The words, the
+  order and the pacing are identical — it is the same story, spatially
+  re-argued for a screen you look at from two feet away.
+*/
+
+.shaft[data-stage='wide'] { max-width: none; }
+.shaft[data-stage='wide'] .stage {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-inline: 64px;
+}
+.shaft[data-stage='wide'] .s01-stage,
+.shaft[data-stage='wide'] .s11-stage,
+.shaft[data-stage='wide'] .s15-stage { padding-inline: 64px; }
+
+/* Statement scenes: the measure holds, the type grows. */
+.shaft[data-stage='wide'] .s02-lines,
+.shaft[data-stage='wide'] .s03-lead,
+.shaft[data-stage='wide'] .s04-a,
+.shaft[data-stage='wide'] .s13-lead,
+.shaft[data-stage='wide'] .s14-lead,
+.shaft[data-stage='wide'] .s18-lead,
+.shaft[data-stage='wide'] .s20-seen,
+.shaft[data-stage='wide'] .s21-lead { max-width: 34ch; font-size: 21px; }
+
+.shaft[data-stage='wide'] .s02-digits { font-size: min(22vw, 280px); }
+.shaft[data-stage='wide'] .s02-halo { width: 460px; height: 460px; }
+.shaft[data-stage='wide'] .s02-head { font-size: 46px; }
+.shaft[data-stage='wide'] .s02-lines { left: 64px; right: auto; width: 34ch; }
+
+.shaft[data-stage='wide'] .s03-clip > span { font-size: min(9vw, 108px); }
+.shaft[data-stage='wide'] .s04-b { font-size: min(8vw, 92px); left: 64px; right: 64px; }
+.shaft[data-stage='wide'] .s04-c { left: 64px; right: 64px; font-size: 24px; }
+
+/* 05–07, 10: plate and text share the screen instead of stacking. */
+.shaft[data-stage='wide'] .s05-lines { font-size: 34px; max-width: 22ch; }
+.shaft[data-stage='wide'] .s05-credit {
+  position: absolute; left: var(--gut); right: var(--gut); bottom: 5dvh;
+  font-size: 11px; color: oklch(94% 0.018 84 / .62);
+}
+.s05-place { font-size: min(11vw, 128px); }
+
+.shaft[data-stage='wide'] .s06-stage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: center;
+  column-gap: 48px;
+}
+.shaft[data-stage='wide'] .s06-plate { height: 68dvh; grid-row: 1 / span 4; }
+.shaft[data-stage='wide'] .s06-body,
+.shaft[data-stage='wide'] .s06-facts,
+.shaft[data-stage='wide'] .s06-hanuman,
+.shaft[data-stage='wide'] .s06-credit { padding: 0; grid-column: 2; }
+.shaft[data-stage='wide'] .s06-body { align-self: end; font-size: 20px; }
+
+.shaft[data-stage='wide'] .s07-stage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 48px;
+}
+.shaft[data-stage='wide'] .s07-frame { height: 100dvh; }
+.shaft[data-stage='wide'] .s07-well {
+  min-height: 0; align-self: center;
+  padding: 0; font-size: 22px;
+}
+.shaft[data-stage='wide'] .s07-count { font-size: 160px; }
+
+.shaft[data-stage='wide'] .s08-cards { gap: 28px; }
+.shaft[data-stage='wide'] .s08-card { min-height: 280px; }
+.shaft[data-stage='wide'] .s08-pair { font-size: min(7vw, 84px); }
+
+.shaft[data-stage='wide'] .s09-stage {
+  display: grid; grid-template-columns: 1.15fr 1fr;
+  column-gap: 56px; align-content: center;
+}
+.shaft[data-stage='wide'] .s09-plate { grid-row: 1 / span 4; margin-top: 0; align-self: center; }
+.shaft[data-stage='wide'] .s09-lines,
+.shaft[data-stage='wide'] .s09-arc,
+.shaft[data-stage='wide'] .s09-labels,
+.shaft[data-stage='wide'] .s09-close { grid-column: 2; }
+.shaft[data-stage='wide'] .s09-lines > p { font-size: 22px; }
+
+.shaft[data-stage='wide'] .s10-lead,
+.shaft[data-stage='wide'] .s10-foot { left: 64px; right: auto; max-width: 30ch; }
+.shaft[data-stage='wide'] .s10-name { font-size: min(9vw, 120px); }
+
+/* 12: a band you scan, not a rail you drag. */
+.shaft[data-stage='wide'] .s12-band {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+.shaft[data-stage='wide'] .s12-card { width: auto; }
+.shaft[data-stage='wide'] .s12-card-plate { height: 40dvh; }
+.shaft[data-stage='wide'] .s12-card-head { flex-direction: column; align-items: flex-start; gap: 2px; }
+.shaft[data-stage='wide'] .s12-card-head b { font-size: 15px; }
+.shaft[data-stage='wide'] .s12-card-place { font-size: 11px; }
+.shaft[data-stage='wide'] .s12-calls,
+.shaft[data-stage='wide'] .s12-call { padding: 0; left: 0; right: 0; font-size: 22px; }
+.shaft[data-stage='wide'] .s12-progress,
+.shaft[data-stage='wide'] .s12-hint { margin-inline: 0; }
+
+.shaft[data-stage='wide'] .s13-stanza { font-size: min(6vw, 72px); }
+.shaft[data-stage='wide'] .s13-name { font-size: min(9vw, 108px); }
+.shaft[data-stage='wide'] .s14-q { font-size: min(11vw, 132px); }
+.shaft[data-stage='wide'] .s14-ghost { font-size: min(30vw, 400px); }
+
+.shaft[data-stage='wide'] .s15-top,
+.shaft[data-stage='wide'] .s15-by { left: 50%; right: auto; translate: -50% 0; width: 40ch; }
+.shaft[data-stage='wide'] .s15-words > div { font-size: 56px; }
+
+.shaft[data-stage='wide'] .s16-body { padding: 64px; align-items: center; }
+.shaft[data-stage='wide'] .s16-body .seq { width: min(56ch, 100%); }
+.shaft[data-stage='wide'] .s16-body .beat { font-size: 22px; }
+
+.shaft[data-stage='wide'] .s17-path { left: 50%; width: 520px; translate: -50% 0; }
+.shaft[data-stage='wide'] .s17-word { font-size: 54px; }
+.shaft[data-stage='wide'] .s17-word.is-last { font-size: 60px; }
+.shaft[data-stage='wide'] .s17-well {
+  left: 50%; right: auto; translate: -50% 0; width: 48ch; font-size: 20px;
+}
+
+.shaft[data-stage='wide'] .s18-body { left: 64px; right: auto; width: 40ch; font-size: 22px; }
+.shaft[data-stage='wide'] .s18-here { font-size: 42px; }
+
+.shaft[data-stage='wide'] .s19-main { width: 208px; height: 272px; }
+.shaft[data-stage='wide'] .s19-node { width: 84px; height: 112px; }
+.shaft[data-stage='wide'] .s19-main-label { font-size: 46px; }
+.shaft[data-stage='wide'] .s19-foot .gap { max-width: 52ch; margin-inline: auto; }
+
+.shaft[data-stage='wide'] .s20-now,
+.shaft[data-stage='wide'] .s20-look { left: 50%; right: auto; translate: -50% 0; width: 34ch; }
+.shaft[data-stage='wide'] .s20-look { width: 24ch; font-size: min(6vw, 72px); }
+
+.shaft[data-stage='wide'] .s21-body { left: 64px; right: auto; width: 36ch; }
+.shaft[data-stage='wide'] .s21-strands { font-size: 40px; }
+.shaft[data-stage='wide'] .s21-name { font-size: min(6vw, 72px); }
+.shaft[data-stage='wide'] .s21-morya h2 { font-size: min(8vw, 96px); }
+
+/*
+  ── reduced motion ────────────────────────────────────────────────────
+
+  Nothing here is an animation to cancel — every effect is a transform over a
+  scroll variable, and a visitor who has asked for less motion still scrolls.
+  What changes is the parts of the piece that hide content until scrolled to:
+  the stacked prose beats become ordinary flow, all of it legible at once, and
+  the elements that exist only to move are dropped. Same words, same order,
+  nothing withheld.
+*/
+@media (prefers-reduced-motion: reduce) {
+  .seq { display: flex; flex-direction: column; gap: 12px; min-height: 0 !important; }
+  .seq > .beat { position: static; opacity: 1 !important; }
+
+  .s01-ring, .s02-halo, .s03-wash,
+  .s15-wash, .s19-wash, .s20-wash { display: none; }
+
+  .s01-mark, .s01-mark h1, .s02-digits, .s02-digits span,
+  .s02-head, .s02-lines, .s02-line,
+  .s03-lead, .s03-clip > span, .s03-year > div, .s03-tail,
+  .s04-a, .s04-b, .s04-c,
+  .s05-lines > *, .s05-place,
+  .s06-body, .s06-facts, .s06-hanuman,
+  .s08-pair > *, .s08-lead, .s08-card, .s08-tail, .s05-credit,
+  .s10-lead, .s10-name, .s10-foot p,
+  .s11-plate, .s11-top, .s11-bottom,
+  .s12-card, .s13-stanza > *, .s13-lead, .s13-name, .s13-facts, .s13-tail,
+  .s14-lead, .s14-q, .s14-stage > p,
+  .s15-top, .s15-words > div, .s15-by,
+  .s16-body, .s17-word, .s17-well,
+  .s18-lead, .s18-body > *,
+  .s19-main, .s19-node, .s19-lead, .s19-main-label, .s19-foot > div,
+  .s20-seen, .s20-now, .s20-look,
+  .s21-lead, .s21-body, .s21-body > *, .s21-strands > *, .s21-morya {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    letter-spacing: normal !important;
+  }
+
+  /* The two ground inversions land immediately rather than opening. */
+  .s16-paper, .s17-shut { clip-path: none !important; }
+  .s16-paper { opacity: 1; }
+  .s17-shut { display: none; }
+
+  /* The sun rests mid-travel: both carvings legible, neither claimed. */
+  .s09-stage { --sun: .5 !important; }
+
+  /* Scene 15 settles on its final form: the book. */
+  .s15-forms > svg { opacity: 0 !important; transform: none !important; }
+  .s15-forms > svg:last-child { opacity: 1 !important; }
+
+  /* Scene 16's photographs are laid out, not dealt. */
+  .s16-card { opacity: 1 !important; transform: none !important; }
+
+  /* Nothing travels sideways on its own. */
+  .s12-rail { transform: none !important; }
+  .s12-rail-clip { overflow-x: auto; }
+
+  /* Full-bleed grounds hold still. */
+  .s05-ground, .s06-plate-inner, .s07-plate, .s08-ground, .s10-plate, .s11-plate {
+    transform: none !important;
+  }
+  .s06-plate { clip-path: none !important; }
+  .s07-rail-fill { height: 100% !important; }
+  .s10-img img { filter: brightness(.88) contrast(1.1) !important; }
+}

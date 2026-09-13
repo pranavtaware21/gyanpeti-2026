@@ -1,0 +1,277 @@
+{
+  "dategad-aerial": {
+    "src": "dategad-aerial",
+    "ratio": 0.751,
+    "widths": [
+      480,
+      768,
+      1080
+    ],
+    "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAACQBACdASoUABsAPwlwsVIrpiSisBgIAXAhCUAABdBdUxDZ6UjdgTa1v6Zc1IAA/p5Y3JBPdC0Rtv6HZOIHxGL0WFl+HhoPW+ERw3Mmmr77yV62SxATw9obQdgeAAAA"
+  },
+  "dategad-both": {
+    "src": "dategad-both",
+    "ratio": 1,
+    "widths": [
+      480
+    ],
+    "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACQBACdASoUABQAPwlor1CrpaQisBgMAXAhCUAX5wIdJULxAxApNAus2zCUPwAA/tUNUv8/WZCSodg9sqbGF7gYJsdI1UF+fecIFnY7XOJt/c0Ah/iQAAAA"
+  },
+  "dategad-ganpati": {
+    "src": "dategad-ganpati",
+    "ratio": 1.3273,
+    "widths": [
+      480
+    ],
+    "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACQAwCdASoUAA8APwlusFArpiSisAgBcCEJYl2ARhYgAf2iBqAAAP7YjM7ZdPkTKDQo4cSVun8snSWr9j75c0+C6BDN01jc30Y+4AAA"
+  },
+  "dategad-shrine": {
+    "src": "dategad-shrine",
+    "ratio": 0.5611,
+    "widths": [
+      480
+    ],
+    "lqip": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAACQBQCdASoUACQAPvlmq0+qpaQiMA1RUB8JQBYj/bhdknXOKq4h2FcsuRnRObcaA8I4EO4eAAD8K8vD5fEvbwvr8UiGD0zDWMFCCdmYeZoC5hDv0GVQTawX+bNJOGBQAuGMiQvFU2OBp8xLoTA3rUz7TfnndEwm190GKCfJLMLQTwEoAAA="
+  },
+  "dategad-steps": {
+    "src": "dategad-steps",
+    "ratio": 0.75,
+    "widths": [
+      480
+    ],
+    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACQAwCdASoUABsAPwl6sVOrp6QwqAqqECEJQBZwAxDuFhs3fryAAP7mHSyb9oyMzMHXFzciTcus2HWxcFKBRmewJoodI1XjuVISp58QAAA="
+  },
+  "dategad-well": {
+    "src": "dategad-well",
+    "ratio": 0.7964,
+    "widths": [
+      480
+    ],
+    "lqip": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAACwBACdASoUABkAPvlsq0+qpqQiN/VYAVAfCUAYZoIcLKoEMAgLdMYTT+jpFI4AAPyz5SzcpL0fbJxctO5/CB7knoNEbhR46UCjNmX50egfRtj7zUuMXCHloC+UkFnPwAAAAA=="
+  },
+  "gufa-stairs": {
+    "src": "gufa-stairs",
+    "ratio": 0.8,
+    "widths": [
+      480,
+      768
+    ],
+    "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACwBACdASoUABkAPwl2sVMrpyQiqAqpcCEJYgCdMxgBRTWjBIu+FNrI9YNw4DAAAMpswhHj/SM/R7rty8+B3p4bjCbWQvKtCeLP1m81hdE1b0OnVnHRgGW5flJHgTOBPSUm9n1vwG8AAA=="
+  },
+  "gufa-steps": {
+    "src": "gufa-steps",
+    "ratio": 1.5556,
+    "widths": [
+      480
+    ],
+    "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAwCdASoUAA0APwlwsFArpqSisAgBcCEJQBOmUABTuMOmMaYAAP49/8XHfdybDRGOImjHclB23BUlAc9+2MCqd268gVeo0AA="
+  },
+  "gufa-wide": {
+    "src": "gufa-wide",
+    "ratio": 2,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440
+    ],
+    "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACQAwCdASoUAAoAPwlwr0+rpqQiMAgBcCEJYwC06CFnxZmjwjYAAP2pUtBlJLzMdr9uLk/rlfSWMlLdw9Bzir3792ginkBrTyCTZYMKJqAAAA=="
+  },
+  "gyan-05": {
+    "src": "gyan-05",
+    "ratio": 2.2222,
+    "widths": [
+      480,
+      768,
+      1080
+    ],
+    "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACQAwCdASoUAAkAPwlur0+rpiQiMAgBcCEJQBOgBFVEKtRIajiAAPEK4FhENeIi9u0AoDw4lZghyy6gvVYy2AAA"
+  },
+  "gyan-06": {
+    "src": "gyan-06",
+    "ratio": 2,
+    "widths": [
+      480,
+      768,
+      1080
+    ],
+    "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAwCdASoUAAoAPwlur0+rpiQiMAgBcCEJYgCdMoAB5SfN37NcMIAA/ZfHMsBmFa+86jdMSwQvKyESwt066WNlwWyX6ROAwQAAAA=="
+  },
+  "gyan-08": {
+    "src": "gyan-08",
+    "ratio": 1.3333,
+    "widths": [
+      480,
+      768,
+      1080
+    ],
+    "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAwAwCdASoUAA8ALs2EwmEjq6uri4DMSgAAp1EopBI7UNgAAP7Gt5mlhDVp5gJCvj3dXu7WuZzOFJL9YSIVUU0TeJaRi7eUBwAAAA=="
+  },
+  "maruti-01": {
+    "src": "maruti-01",
+    "ratio": 0.6664,
+    "widths": [
+      480,
+      768
+    ],
+    "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAAAQBQCdASoUAB4APwlyslIrpqSisBgIAXAhCWoAnTKAAVucOs2/Jc5P/ZOLFSxYkbPgAP4y77IWH2beiQkTnJYYE+By/KZNXTYcXdTXqPPUVx0l5Op+xMdewZcsF9mBMRmR75bZLKCe2qNI1S1OqnIJLY9blIMYzuzHO5K+/mf7AAAA"
+  },
+  "maruti-02": {
+    "src": "maruti-02",
+    "ratio": 0.6664,
+    "widths": [
+      480,
+      768
+    ],
+    "lqip": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACwBACdASoUAB4APwlurk+rpqQiMBgMAXAhCWwAnTKAA/onSQaAA18rqUmwXKEAAOaOXLxBdYQo7aeK7Q4wIuQE0XyJ7/d/wT4Cf6FVzNVubURmVY+JCtUKmLnMBLAXEOKiZK6SdD8HAFj7kpApRvoAAAA="
+  },
+  "maruti-03": {
+    "src": "maruti-03",
+    "ratio": 0.6664,
+    "widths": [
+      480,
+      768
+    ],
+    "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAwBQCdASoUAB4APvliq0+qpSQiN/qoAVAfCWoAnTMl/gApR9j7xIUHTWAtdBeSqY9UYAD+3IArYG8++nre7YAndrgBPhG/F8ii626Rs5LYvNkzCa/fMC9aFFWWEb+8z4Ek+F16rGVROF8pJwZhz5GZOCuUDQAA"
+  },
+  "maruti-04": {
+    "src": "maruti-04",
+    "ratio": 0.6664,
+    "widths": [
+      480,
+      768
+    ],
+    "lqip": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABQBQCdASoUAB4APwVwr0+rpqQiMBgMAXAgiWoAnTKDMKXAAEVVqkcayxFGmyR8fgxQvAAA/YDhwgP7yxAzaEOTnv4IUWS5w4+a2AzL5DQy7G6bTZc5TCalD1uzYfhSOe8sytYeipk7qIjsm6GAbO7udmqbACeabeRE6AAA"
+  },
+  "maruti-05": {
+    "src": "maruti-05",
+    "ratio": 0.6664,
+    "widths": [
+      480,
+      768
+    ],
+    "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAABwBQCdASoUAB4APwl2tlKrpyUiqAqpcCEJbACdMoR/d8g9uAX8cD4zwUQwVaVC2weNqQ0gAP6/U3m6C06MsFtxVevFUC+U38yqUcC29pLdUrrG4aYMtjdat5kMKOz9FNPkynKdSSXcx3R2VRXkUfhWC9lP2hGkMKrDQwmmjJi0p5QA"
+  },
+  "maruti-06": {
+    "src": "maruti-06",
+    "ratio": 0.6664,
+    "widths": [
+      480,
+      768
+    ],
+    "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAQBQCdASoUAB4APwlssU+rpaSiMBgMAXAhCWoAnTKEfAgRLdCETDbAbFIDPLxKdSwAAP5IbSPkNN5wS1Jhn9nTZfaKMsEqw1iisLpRN8Z+NfHlpHY18t+F82l+zGVhy4nBhfY8f41gP7rwDuF3BoBm97UOaZ2fQAA="
+  },
+  "maruti-07": {
+    "src": "maruti-07",
+    "ratio": 0.6664,
+    "widths": [
+      480,
+      768
+    ],
+    "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAABwBQCdASoUAB4APwlsslKrpSSisBgIAXAhCWoAnTLcmAAGBouGRKJd2vW80f2BP7/dIlqAAP4HRyfhDgsONxNfQZEWGAsV+lBp19C7/UdAUNeymazONhexmsqhULwjzfy5LKqd2w7lzxWxOuh8mC4qei/OBaf014gecGNRuPmTJZQA"
+  },
+  "maruti-08": {
+    "src": "maruti-08",
+    "ratio": 0.6664,
+    "widths": [
+      480,
+      768
+    ],
+    "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAACwBQCdASoUAB4APwlsrlArpaQisBgMAXAhCWwAnTLiMYAk0cl71LbUiAw9W3l10X/Y+0NbpgAA/qnsjH9kza3njHuHaS4vZflPUhuvvCVY4j8Vk34qw1Tb+KQARHLlx+onQyJPug3lnIBEZqTvHJBznM8u47ILs1RBLu3p2RDGQsluYAAAAA=="
+  },
+  "maruti-09": {
+    "src": "maruti-09",
+    "ratio": 0.6664,
+    "widths": [
+      480,
+      768
+    ],
+    "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAAAwBQCdASoUAB4APwl8tlSrp6SjKAgBcCEJagCdMoR5jzKBpXKdHUc4SHJx3mlrRYeMAAD9RRxeI/71oZKX1+OvHK0pUiUrvj7aVvOR3KepcMKj1XiSHzKks/T0CECZ+r/jRfvNoIPK3FgoeSbJ6DlbN6DRroFdlSskdrrF5a6XoAAA"
+  },
+  "maruti-10": {
+    "src": "maruti-10",
+    "ratio": 0.6664,
+    "widths": [
+      480,
+      768
+    ],
+    "lqip": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAwBQCdASoUAB4APvlork+qpiSiMAwBUB8JbACdOUE5gArlOTl3t+k4s/7bhy9VXDnfyAD9m2Ga13Rlo8uRc7RQjyRc4NEBY53hwLlmbECEiNNUCMlm8lu9ry6yfie/+Bm2W/D7GDsGWZuqqAatcAAA"
+  },
+  "maruti-11": {
+    "src": "maruti-11",
+    "ratio": 0.6664,
+    "widths": [
+      480,
+      768
+    ],
+    "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAAAQBQCdASoUAB4APwl2tVIrpyUiqAqpcCEJagCdMoM6ABpda9v2n+nN43aleKFhuui4AP5sFMUJugLH6JMjWK0EALjxv5smzDPLRTYA7QQdnKVWVXF4NHhEDXrSdQZojlSLaA8orW8MmsqA6tKYY1MoV9k1tRsW6F2oDff7XmqVUIIE9Lh8AAAA"
+  },
+  "dategad-entrance": {
+    "src": "dategad-entrance",
+    "ratio": 1.5556,
+    "widths": [
+      480
+    ],
+    "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAwCdASoUAA0APwlurk+rpiQiMAgBcCEJQBOmUABTu0KDw2/FAAD+grnetaq5fzADgDbUc/SkD9OgypGCrph9Wf2XjriAAAA="
+  },
+  "dategad-mandir": {
+    "src": "dategad-mandir",
+    "ratio": 0.8,
+    "widths": [
+      480,
+      768
+    ],
+    "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACwBACdASoUABkAPwl2sVMrpyQiqAqpcCEJYgCdMxgBRTWjBIu+FNrI9YNw4DAAAMpswhHj/SM/R7rty8+B3p4bjCbWQvKtCeLP1m81hdE1b0OnVnHRgGW5flJHgTOBPSUm9n1vwG8AAA=="
+  },
+  "gyan-01": {
+    "src": "gyan-01",
+    "ratio": 1.5004,
+    "widths": [
+      480,
+      768,
+      1080,
+      1440
+    ],
+    "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACQAwCdASoUAA0APwlur0+rpiQiMAgBcCEJQBUehHyDNwrSgL3AAP6+MExUDWzwz7sgqeWp21ucF1ZerFIQ48B57peTxWlQ04pHq3luUeqIRdAAAAA="
+  },
+  "gyan-02": {
+    "src": "gyan-02",
+    "ratio": 1.3333,
+    "widths": [
+      480,
+      768,
+      1080
+    ],
+    "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAwCdASoUAA8APwlwsFArpiSisAgBcCEJQBOgA8Cg2LJxDEorDnBAAP7GqqcXRlyiIK9ZiFgoTc8Mzq1ZWraIE+qJgEFvtlauwvhlXMQYOE/SuoAAAA=="
+  },
+  "gyan-03": {
+    "src": "gyan-03",
+    "ratio": 1.7778,
+    "widths": [
+      480,
+      768,
+      1080
+    ],
+    "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACQAwCdASoUAAsAPwlws0+rpqUiMAgBcCEJYgC7ABoTbmqgc2uAAP5ec4Ivn0WgVWd9mCj7dV6npl7BYXELlYzXHBiwxzzLj12wk8BZ1MAAAA=="
+  },
+  "gyan-04": {
+    "src": "gyan-04",
+    "ratio": 1.7778,
+    "widths": [
+      480,
+      768,
+      1080
+    ],
+    "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABwAwCdASoUAAsAPwlMvVmroqekmAFwIQlkAJ0AC1GEx9Pt2gAA8nMwHHT1cvhOdxLu+lSTeWkVoHyGJeQELmfQprwCPi/PijgY/Yx7OWAAAA=="
+  },
+  "gyan-07": {
+    "src": "gyan-07",
+    "ratio": 1.3333,
+    "widths": [
+      480,
+      768,
+      1080
+    ],
+    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAABwAwCdASoUAA8APwlurk+rpiQiMAgBcCEJQBWAAehRPilk9AAA+FACHriNXdFsVTz2UjdbDMSjP5z5bN5qcMi1ppT1hMd6aAJ4H/h9QAA="
+  }
+}

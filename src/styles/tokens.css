@@ -1,0 +1,119 @@
+/*
+  v2 — basalt ground.
+
+  The earlier palette put the whole piece on paper and inverted to lamplight
+  once, at ज्ञान. v2 reverses that: the ground is the dark of the rock-cut
+  shrine at Dategad, and the single luminance event is the page turning to
+  paper when the offering becomes a book. That inversion now carries the
+  thesis instead of decorating it.
+
+  deep    — the shrine interior. Near-black, warm, never neutral #111.
+  shendur — शेंदूर, the vermilion the murtis are coated in. Rationed.
+  haldi   — turmeric gilt. Hairlines, numerals, rules. Never a fill.
+  kagad   — paper. Body text on the dark, and the ground of scenes 16–17.
+
+  Names are kept short and identical to the design source so a scene can be
+  diffed against it line for line.
+*/
+:root {
+  --deep: #0d0906;
+  --katal-900: oklch(21% 0.038 42);
+  --shendur: oklch(63% 0.213 38);
+  --haldi: oklch(83% 0.150 86);
+  --kagad: oklch(94% 0.018 84);
+
+  /* Ink used on the paper scenes. */
+  --paper-ink: oklch(24% 0.030 45);
+  --paper-ink-soft: oklch(28% 0.030 45);
+  --paper-accent: oklch(44% 0.170 42);
+  --paper-rule: oklch(48% 0.170 40 / 0.35);
+
+  /* Tints of kagad, precomputed so scenes do not each invent an alpha. */
+  --kagad-90: oklch(94% 0.018 84 / 0.9);
+  --kagad-85: oklch(94% 0.018 84 / 0.85);
+  --kagad-78: oklch(94% 0.018 84 / 0.78);
+  --kagad-72: oklch(94% 0.018 84 / 0.72);
+  --kagad-30: oklch(94% 0.018 84 / 0.3);
+  --kagad-16: oklch(94% 0.018 84 / 0.16);
+  --kagad-14: oklch(94% 0.018 84 / 0.14);
+  --kagad-07: oklch(94% 0.018 84 / 0.07);
+
+  --haldi-45: oklch(83% 0.150 86 / 0.45);
+  --haldi-32: oklch(83% 0.150 86 / 0.32);
+  --haldi-28: oklch(83% 0.150 86 / 0.28);
+  --haldi-24: oklch(83% 0.150 86 / 0.24);
+  --haldi-11: oklch(83% 0.150 86 / 0.11);
+
+  --scrim: oklch(10% 0.014 40 / 0.9);
+  --scrim-hard: oklch(10% 0.014 40 / 0.96);
+
+  --f-disp: 'Rozha One', 'Noto Serif Devanagari', Georgia, serif;
+  --f-ui: 'Anek Devanagari', 'Noto Sans Devanagari', system-ui, sans-serif;
+  --f-read: 'Tiro Devanagari Marathi', 'Noto Serif Devanagari', Georgia, serif;
+
+  /* Legacy aliases so base.css, Img and Missing keep working unchanged. */
+  --bg: var(--deep);
+  --fg: var(--kagad);
+  --fg-quiet: var(--kagad-72);
+  --accent: var(--shendur);
+  --font-display: var(--f-disp);
+  --font-read: var(--f-read);
+  --font-ui: var(--f-ui);
+
+  /* The phone column. The design is drawn at 480px and everything inside a
+     scene is sized against that, so it is a token, not a magic number. */
+  --col: 480px;
+  --gut: 24px;
+
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+
+  /*
+    The warm ground, as a token.
+
+    A vertical ramp, not a radial. Two earlier attempts failed the same way:
+    a radial has a centre, and a centre is a shape — you end up looking at an
+    orange blob sitting on the page instead of at a room that happens to be
+    warm. A ramp has no locus to find, so there is nothing to notice.
+
+    It does not drift with scroll either. Anything that moves gets watched.
+
+    Amplitude is very low on purpose: at its strongest this lifts the ground
+    from rgb(13,9,6) to about rgb(30,20,15) — perceptible as warmth when you
+    look for it, invisible when you do not. If you can see where it starts or
+    stops, it is too strong.
+
+    Anything that must repaint this same field — the circle closing scene 17
+    back to the dark — uses these tokens, because a flat --deep against it
+    reads as a black rectangle with a hard edge. Fixed attachment means every
+    surface using them lines up exactly, wherever it sits in the scroll.
+
+    The noise tile is dither: a gradient this dark bands into visible steps on
+    an 8-bit display, and a little grain is the standard cure.
+  */
+  --ground-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E"),
+    linear-gradient(
+      180deg,
+      oklch(22% 0.040 42 / .62) 0%,
+      oklch(19% 0.032 40 / .34) 26%,
+      oklch(16% 0.024 38 / .14) 52%,
+      transparent 78%
+    );
+  --ground-size: 160px 160px, cover;
+
+  --ease-stone: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-breath: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/*
+  The paper scenes. Two of the twenty-one (ज्ञान पेटी and भविष्य) invert the
+  ground, and they do it with a clip-path circle that grows out of the scroll
+  rather than a class toggle — so this block only supplies the ink colours the
+  content inside that circle needs.
+*/
+.on-paper {
+  --fg: var(--paper-ink);
+  --fg-quiet: var(--paper-ink-soft);
+  --accent: var(--paper-accent);
+}

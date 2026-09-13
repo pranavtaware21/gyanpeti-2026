@@ -1,0 +1,142 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  /* The ground lives on the root so it paints the whole scroll, not only the
+     first fold. */
+  background: var(--deep);
+}
+
+/*
+  The warm ground.
+
+  One field for the entire document, anchored to the viewport. The first
+  attempt painted a wash per scene, which produced exactly what it sounds
+  like: a hard horizontal seam wherever one scene's wash ended and the next
+  began, and hard vertical ones at the edges of the 480px reading column. A
+  gradient you can see the boundary of is a rectangle, not an atmosphere.
+
+  `background-attachment: fixed` is what makes it seamless — the field belongs
+  to the screen rather than to any scene, so there is no edge anywhere in the
+  scroll and nothing to line up. It spans the full viewport width, past the
+  column, so the sides have no seam either.
+
+  The noise tile on top is not decoration: a smooth gradient this dark bands
+  into visible rings on an 8-bit display, and a little dither is the standard
+  cure. It is at 3.5% and you should never consciously see it.
+
+  Amplitude is deliberately tiny — kagad on this stays above 14:1. If you can
+  see where the warmth starts and stops, it is too strong.
+*/
+body {
+  margin: 0;
+  min-height: 100%;
+  background-color: var(--deep);
+  background-image: var(--ground-image);
+  background-attachment: fixed, fixed;
+  background-size: var(--ground-size);
+  color: var(--kagad);
+  font-family: var(--f-ui);
+  font-size: 17px;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overscroll-behavior-y: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Devanagari needs headroom above the shirorekha and below descenders that
+   Latin defaults do not give it. */
+:lang(mr), :lang(hi) { line-height: 1.78; }
+
+h1, h2, h3 {
+  font-family: var(--f-disp);
+  font-weight: 400;
+  line-height: 1.16;
+  margin: 0;
+}
+
+p { margin: 0 0 1.1em; }
+img, video, canvas { display: block; max-width: 100%; }
+
+a { color: var(--haldi); }
+a:hover { color: var(--shendur); }
+
+button {
+  font: inherit; color: inherit; background: none;
+  border: 0; padding: 0; cursor: pointer;
+  touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 2px solid var(--haldi);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection { background: var(--shendur); color: var(--kagad); }
+
+/* Every tap target clears 44px even when the visible mark is smaller. */
+.tap::after {
+  content: '';
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 44px; height: 44px;
+  transform: translate(-50%, -50%);
+}
+
+.sr {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+
+/* Img's aspect box and blurred placeholder. */
+.img {
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+.img img { width: 100%; height: 100%; object-fit: cover; }
+.img.is-loaded { background-image: none; }
+.img-credit {
+  position: absolute; right: 6px; bottom: 5px;
+  font-family: var(--f-ui); font-size: 10px; letter-spacing: 0.08em;
+  color: var(--kagad-72);
+  text-shadow: 0 1px 3px oklch(10% 0.014 40 / 0.9);
+}
+
+/* Missing.tsx — an unfilled slot must look unfilled. */
+.slot {
+  border: 1px dashed var(--haldi-45);
+  border-radius: 4px;
+  padding: 11px 14px;
+  display: flex; flex-direction: column; gap: 5px;
+}
+.slot-label {
+  font-family: var(--f-ui); font-size: 11.5px;
+  letter-spacing: 0.14em; color: var(--haldi);
+}
+.slot-id {
+  font-family: ui-monospace, monospace; font-size: 11px;
+  color: var(--kagad-72);
+}
+
+/*
+  Reduced motion.
+
+  Every effect in this piece is a CSS transform driven by a scroll variable,
+  so there is no animation to cancel — but the scroll driver publishes a
+  settled value instead of a scrubbing one, and these rules stop the two
+  remaining continuous effects. The story is identical either way; that is
+  the rule the whole project is built on.
+*/
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
