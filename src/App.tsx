@@ -47,15 +47,29 @@ import { Close } from './scenes/Close'
  * decision lives in exactly one place.
  */
 export default function App() {
+  return (
+    <I18nProvider>
+      <OverlayProvider>
+        <Piece />
+      </OverlayProvider>
+    </I18nProvider>
+  )
+}
+
+/*
+  Split from App on purpose: App is what renders I18nProvider, so a hook call
+  inside it runs outside its own provider and throws. Everything that needs to
+  know the language lives here, one level down.
+*/
+function Piece() {
   const stage = useStage()
   const { lang } = useI18n()
   // ?debug=1 prints the scroll engine's live state over the piece.
   const debug = new URLSearchParams(location.search).get('debug') === '1'
 
   return (
-    <I18nProvider>
-      <OverlayProvider>
-        <ProgressRule />
+    <>
+      <ProgressRule />
         <LangPicker />
         {debug && <Diagnostics />}
 
@@ -81,8 +95,7 @@ export default function App() {
           <Composition />
           <LookUp />
           <Close />
-        </main>
-      </OverlayProvider>
-    </I18nProvider>
+      </main>
+    </>
   )
 }
