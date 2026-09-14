@@ -14,7 +14,7 @@ import { useI18n } from '../content/i18n'
  */
 export function OneThread() {
   const S = useScript()
-  const { lang } = useI18n()
+  const { lang, t } = useI18n()
   const dim = ramp(0.44, 5)
   const name = ramp(0.5, 8)
 
@@ -53,7 +53,7 @@ export function OneThread() {
             {S.thread.tail}
           </div>
           <div className="s13-districts">
-            {DISTRICTS.map((d) => `${d.name} ${num(d.count, lang)}`).join(' · ')}
+            {DISTRICTS.map((d) => `${t(d.text)} ${num(d.count, lang)}`).join(' · ')}
           </div>
         </div>
       </Stage>

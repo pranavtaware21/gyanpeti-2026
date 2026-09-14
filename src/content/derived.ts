@@ -56,9 +56,18 @@ export const BY_DISTRICT = MARUTIS.reduce<Record<string, number>>((acc, m) => {
   return acc
 }, {})
 
+/*
+  Keyed on the Marathi name but carrying the whole Text, so the tally can be
+  printed in whichever script is being read. Counting on `mr` keeps the
+  grouping stable no matter what language the page is in.
+*/
 export const DISTRICTS = Object.entries(BY_DISTRICT)
   .sort((a, b) => b[1] - a[1])
-  .map(([name, count]) => ({ name, count }))
+  .map(([name, count]) => ({
+    name,
+    count,
+    text: MARUTIS.find((m) => m.district.mr === name)!.district,
+  }))
 
 /**
  * A one-line reading of this Maruti's position in the sequence, assembled only
