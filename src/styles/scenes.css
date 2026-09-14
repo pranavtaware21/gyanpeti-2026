@@ -863,8 +863,11 @@
   font-family: var(--f-ui); font-size: 10.5px;
   letter-spacing: .18em; color: var(--kagad-72);
 }
+/* Latin name: the UI face carries it better than the Devanagari serif, and a
+   little tracking stops it reading as cramped beside the Marathi label. */
 .s21-credit-name {
-  font-family: var(--f-read); font-size: 15px;
+  font-family: var(--f-ui);
+  font-size: 14px; letter-spacing: .06em;
   color: var(--haldi);
 }
 .shaft[data-stage='wide'] .s21-credit-name { font-size: 18px; }
@@ -1135,8 +1138,11 @@
   font-family: var(--f-ui); font-size: 10.5px;
   letter-spacing: .18em; color: var(--kagad-72);
 }
+/* Latin name: the UI face carries it better than the Devanagari serif, and a
+   little tracking stops it reading as cramped beside the Marathi label. */
 .s21-credit-name {
-  font-family: var(--f-read); font-size: 15px;
+  font-family: var(--f-ui);
+  font-size: 14px; letter-spacing: .06em;
   color: var(--haldi);
 }
 .shaft[data-stage='wide'] .s21-credit-name { font-size: 18px; }

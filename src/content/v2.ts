@@ -276,10 +276,10 @@ export const V2 = {
     morya: 'गणपती बाप्पा मोरया!',
     /*
       The credit is for this website, not for the सजावट — the mandal built
-      that. Devanagari, because every other word on screen is, and a Latin
-      name would be the single exception in the whole piece.
+      that. The label stays Marathi with the rest of the piece; the name is
+      Latin at the owner's instruction.
     */
     creditLabel: 'संकल्पना आणि मांडणी',
-    creditName: 'प्रणव तवरे',
+    creditName: 'Pranav Taware',
   },
 } as const
