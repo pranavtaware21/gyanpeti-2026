@@ -81,7 +81,7 @@ export function GyanPeti() {
                 type="button"
                 key={photo.key}
                 className="s16-card"
-                aria-label={`${t(photo.alt)} — ${S.ui.enlarge}`}
+                aria-label={`${t(photo.alt)} · ${S.ui.enlarge}`}
                 onClick={() => zoom(photo.media, t(photo.alt))}
                 style={{
                   left: `${[2.5, 26.5, 50.5, 74.5][col]}%`,

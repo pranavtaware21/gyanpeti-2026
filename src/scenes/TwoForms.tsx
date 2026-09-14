@@ -52,7 +52,7 @@ export function TwoForms() {
           <button
             type="button"
             className="s08-card s08-card--photo"
-            aria-label={`${S.twoForms.ganpati} — ${S.ui.enlarge}`}
+            aria-label={`${S.twoForms.ganpati} · ${S.ui.enlarge}`}
             onClick={() => zoom(PHOTOS.ganpati, S.twoForms.ganpati)}
             style={{
               opacity: ramp(0.5, 8),
@@ -66,7 +66,7 @@ export function TwoForms() {
           <button
             type="button"
             className="s08-card s08-card--photo"
-            aria-label={`${S.twoForms.maruti} — ${S.ui.enlarge}`}
+            aria-label={`${S.twoForms.maruti} · ${S.ui.enlarge}`}
             onClick={() => zoom(PHOTOS.shrine, S.twoForms.maruti)}
             style={{
               opacity: ramp(0.62, 8),

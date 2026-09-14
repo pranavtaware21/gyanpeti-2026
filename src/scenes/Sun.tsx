@@ -49,7 +49,7 @@ export function Sun() {
         <button
           type="button"
           className="s09-plate"
-          aria-label={`${alt} — ${S.ui.enlarge}`}
+          aria-label={`${alt} · ${S.ui.enlarge}`}
           onClick={() => zoom(PHOTOS.chamber, alt)}
         >
           <Img media={PHOTOS.chamber} slot="dategad.chamber" sizes="480px" />

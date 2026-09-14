@@ -192,7 +192,7 @@ function MarutiSheet({
         <button
           type="button"
           className="sheet-photo"
-          aria-label={`${m.name.dev} — ${S.ui.enlarge}`}
+          aria-label={`${m.name.dev} · ${S.ui.enlarge}`}
           onClick={() => onZoom(m.media ?? null, m.name.dev)}
         >
           <Img media={m.media ?? null} slot={`maruti.${m.id}.photo`} sizes="480px" />
