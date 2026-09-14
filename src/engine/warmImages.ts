@@ -15,8 +15,10 @@ import generated from '../content/media.generated.json'
  * instantly.
  *
  * Requests are deliberately low priority so they can never compete with the
- * fonts or the first photograph, and they are sequential rather than parallel
- * so a slow connection is not saturated by forty at once.
+ * fonts or the first photograph, and only a few are in flight at once — enough
+ * to use the connection, not so many that a slow one is saturated and the
+ * photograph the visitor is actually looking at has to queue behind twenty-four
+ * it has not reached yet.
  */
 
 type Entry = { src: string; widths: number[] }
@@ -48,9 +50,15 @@ async function pull(name: string) {
   }
 }
 
+const IN_FLIGHT = 3
+
 export function warmImages() {
   const start = async () => {
-    for (const name of ORDER) await pull(name)
+    const queue = [...ORDER]
+    const worker = async () => {
+      for (let name = queue.shift(); name; name = queue.shift()) await pull(name)
+    }
+    await Promise.all(Array.from({ length: IN_FLIGHT }, worker))
   }
 
   // Never compete with first paint, and skip it entirely for anyone who has
