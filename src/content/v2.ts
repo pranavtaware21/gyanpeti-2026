@@ -274,5 +274,12 @@ export const V2 = {
     name: 'ज्ञान पेटी बाप्पा माझा — ',
     year: '२०२६',
     morya: 'गणपती बाप्पा मोरया!',
+    /*
+      The credit is for this website, not for the सजावट — the mandal built
+      that. Devanagari, because every other word on screen is, and a Latin
+      name would be the single exception in the whole piece.
+    */
+    creditLabel: 'संकल्पना आणि मांडणी',
+    creditName: 'प्रणव तवरे',
   },
 } as const

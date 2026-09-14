@@ -853,6 +853,22 @@
   display: flex; align-items: center; justify-content: center;
   text-align: center;
 }
+.s21-credit {
+  position: absolute; left: 26px; right: 26px;
+  bottom: calc(6% + var(--safe-b));
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  text-align: center;
+}
+.s21-credit-label {
+  font-family: var(--f-ui); font-size: 10.5px;
+  letter-spacing: .18em; color: var(--kagad-72);
+}
+.s21-credit-name {
+  font-family: var(--f-read); font-size: 15px;
+  color: var(--haldi);
+}
+.shaft[data-stage='wide'] .s21-credit-name { font-size: 18px; }
+
 .s21-morya h2 {
   font-family: var(--f-disp);
   font-size: min(12.5vw, 50px); line-height: 1.2;
@@ -1109,7 +1125,23 @@
 .shaft[data-stage='wide'] .s21-body { left: 64px; right: auto; width: 36ch; }
 .shaft[data-stage='wide'] .s21-strands { font-size: 40px; }
 .shaft[data-stage='wide'] .s21-name { font-size: min(6vw, 72px); }
-.shaft[data-stage='wide'] .s21-morya h2 { font-size: min(8vw, 96px); }
+.shaft[data-stage='wide'] .s21-credit {
+  position: absolute; left: 26px; right: 26px;
+  bottom: calc(6% + var(--safe-b));
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  text-align: center;
+}
+.s21-credit-label {
+  font-family: var(--f-ui); font-size: 10.5px;
+  letter-spacing: .18em; color: var(--kagad-72);
+}
+.s21-credit-name {
+  font-family: var(--f-read); font-size: 15px;
+  color: var(--haldi);
+}
+.shaft[data-stage='wide'] .s21-credit-name { font-size: 18px; }
+
+.s21-morya h2 { font-size: min(8vw, 96px); }
 
 /*
   ── reduced motion ────────────────────────────────────────────────────

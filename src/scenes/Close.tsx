@@ -69,6 +69,12 @@ export function Close() {
         >
           <h2>{V2.close.morya}</h2>
         </div>
+
+        {/* Last thing on the last screen, and deliberately the quietest. */}
+        <div className="s21-credit" style={{ opacity: ramp(0.9, 10) }}>
+          <span className="s21-credit-label">{V2.close.creditLabel}</span>
+          <span className="s21-credit-name">{V2.close.creditName}</span>
+        </div>
       </Stage>
     </Scene>
   )
