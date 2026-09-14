@@ -33,8 +33,8 @@ export const PHOTOS = {
     Scenes 05 and 06 both set the aerial as a ground and both print the credit
     as their own line, so passing it here only ever duplicated it.
   */
-  aerial: media('dategad-aerial', s('दातेगड — वरून दिसणारा गड', 'Dategad, seen from above')),
-  entrance: media('dategad-entrance', s('अखंड खडकात कोरलेलं भुयारी मंदिर — उतरणाऱ्या पायऱ्या', 'The underground shrine cut from solid rock — the descending steps')),
+  aerial: media('dategad-aerial', s('दातेगड · वरून दिसणारा गड', 'Dategad, seen from above')),
+  entrance: media('dategad-entrance', s('अखंड खडकात कोरलेलं भुयारी मंदिर · उतरणाऱ्या पायऱ्या', 'The underground shrine cut from solid rock · the descending steps')),
   mandir: media('dategad-mandir', s('खडकात कोरलेली मारुतीची मूर्ती', 'The Maruti carved into the rock')),
   /*
     Scene 09's photograph. The canvas calls this `dategad-chamber`, but the
@@ -44,7 +44,7 @@ export const PHOTOS = {
     wall to the मारुती on the other, and a photograph of either alone can only
     assert that.
   */
-  chamber: media('dategad-both', s('दातेगडावरील भुयारी मंदिर — गणपती आणि मारुती', 'The underground shrine at Dategad — Ganpati and Maruti')),
+  chamber: media('dategad-both', s('दातेगडावरील भुयारी मंदिर · गणपती आणि मारुती', 'The underground shrine at Dategad · Ganpati and Maruti')),
   ganpati: media('dategad-ganpati', s('एका भिंतीवर गणपती', 'Ganpati, on one wall')),
   shrine: media('dategad-shrine', s('दगडात कोरलेला मारुती', 'Maruti, carved from the stone')),
 }
@@ -60,7 +60,7 @@ export const GYAN_PHOTOS = [
   { key: 'gyan-03', alt: s('वह्या-पुस्तकांचे वाटप', 'Handing out notebooks and books') },
   { key: 'gyan-05', alt: s('कंपासपेटी मिळालेली मुलं', 'Children with their new compass boxes') },
   { key: 'gyan-07', alt: s('साहित्य हातात देताना', 'Placing the supplies in their hands') },
-  { key: 'gyan-08', alt: s('शैक्षणिक साहित्य वाटप — २०२४-२५', 'School supplies distribution — 2024-25') },
+  { key: 'gyan-08', alt: s('शैक्षणिक साहित्य वाटप · २०२४-२५', 'School supplies distribution · 2024-25') },
   { key: 'gyan-04', alt: s('शाळेतील मुलं', 'Children at school') },
   { key: 'gyan-06', alt: s('वाटप कार्यक्रम', 'The distribution programme') },
   { key: 'gyan-02', alt: s('संपूर्ण वाटप कार्यक्रम', 'The whole distribution programme') },
@@ -227,7 +227,7 @@ export const V2 = {
       'And now, looking at these eleven forms, a question arrives…',
     ),
     num: s('११', '11'),
-    question: s('च का?', ' — why?'),
+    question: s('च का?', '… why?'),
     a: s('याच प्रश्नातून आपली पुढची गोष्ट सुरू होते.', 'Our next story begins with that question.'),
     b: s('कारण ही फक्त अकरा मूर्तींची मांडणी नाही.', 'Because this is not merely an arrangement of eleven murtis.'),
     c: s('ही त्या विचाराला समजून घेण्याची सुरुवात आहे.', 'It is the beginning of understanding the thought behind them.'),
@@ -255,7 +255,7 @@ export const V2 = {
     q1Emphasis: s('ज्ञान अर्पण केलं तर?', 'knowledge instead?'),
     becomes: s('ते बनतं…', 'It becomes…'),
     offering: s('ज्ञानाचं अर्पण.', 'an offering of knowledge.'),
-    therefore: s('आणि म्हणूनच —', 'And so —'),
+    therefore: s('आणि म्हणूनच…', 'And so…'),
     name: s('ज्ञान पेटी बाप्पा माझा.', 'Gyan Peti Bappa Maza.'),
   },
 
@@ -321,7 +321,7 @@ export const V2 = {
   /** 21 — close. */
   close: {
     lead: s('कदाचित आता तुम्हाला ती फक्त सजावट दिसणार नाही.', 'Perhaps now you will not see only a decoration.'),
-    youWillSee: s('तुम्हाला दिसेल—', 'You will see—'),
+    youWillSee: s('तुम्हाला दिसेल…', 'You will see…'),
     strands: [
       s('दातेगडचा दगड…', 'the stone of Dategad…'),
       s('मारुतीची तीच भावना…', 'that same feeling of Maruti…'),
@@ -329,7 +329,7 @@ export const V2 = {
       s('ज्ञानाचं अर्पण…', 'an offering of knowledge…'),
     ],
     and: s('आणि', 'and'),
-    name: s('ज्ञान पेटी बाप्पा माझा — ', 'Gyan Peti Bappa Maza — '),
+    name: s('ज्ञान पेटी बाप्पा माझा · ', 'Gyan Peti Bappa Maza · '),
     year: s('२०२६', '2026'),
     /** An invocation: rendered the way English speakers say it, not translated. */
     morya: s('गणपती बाप्पा मोरया!', 'Ganpati Bappa Morya!'),
