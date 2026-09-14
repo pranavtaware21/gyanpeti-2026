@@ -1,6 +1,6 @@
 import { Scene, Stage } from '../ui/Scene'
 import { ramp } from '../engine/scrub'
-import { V2 } from '../content/v2'
+import { useScript } from '../content/useScript'
 
 /**
  * 04 — ही एक कथा आहे.
@@ -9,6 +9,7 @@ import { V2 } from '../content/v2'
  * argument, not ornament. Three sentences, each taking the screen alone.
  */
 export function StoryBegins() {
+  const S = useScript()
   const claim = ramp(0.40, 14)
 
   return (
@@ -20,7 +21,7 @@ export function StoryBegins() {
           className="s04-a"
           style={{ opacity: `calc(${ramp(0.04, 9)} - ${ramp(0.40, 14)})` }}
         >
-          {V2.storyBegins.a}
+          {S.storyBegins.a}
         </div>
 
         <div
@@ -30,11 +31,11 @@ export function StoryBegins() {
             transform: `scale(calc(.86 + ${claim} * .14))`,
           }}
         >
-          {V2.storyBegins.b}
+          {S.storyBegins.b}
         </div>
 
         <div className="s04-c" style={{ opacity: ramp(0.76, 14) }}>
-          {V2.storyBegins.c}
+          {S.storyBegins.c}
         </div>
       </Stage>
     </Scene>

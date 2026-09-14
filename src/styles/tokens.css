@@ -55,6 +55,17 @@
   --f-ui: 'Anek Devanagari', 'Noto Sans Devanagari', system-ui, sans-serif;
   --f-read: 'Tiro Devanagari Marathi', 'Noto Serif Devanagari', Georgia, serif;
 
+  /*
+    English faces.
+
+    Rozha One and Tiro are drawn for Devanagari; their Latin is an afterthought
+    and reads thin and badly spaced at display size. Fraunces carries the same
+    painted-board weight as Rozha for headings, and Lora is a screen serif that
+    holds up on a dark ground where a Garamond would disappear.
+  */
+  --f-disp-en: 'Fraunces', Georgia, serif;
+  --f-read-en: 'Lora', Georgia, serif;
+
   /* Legacy aliases so base.css, Img and Missing keep working unchanged. */
   --bg: var(--deep);
   --fg: var(--kagad);

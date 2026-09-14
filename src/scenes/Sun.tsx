@@ -1,8 +1,10 @@
 import { Scene, Stage } from '../ui/Scene'
 import { ramp } from '../engine/scrub'
-import { PHOTOS, V2 } from '../content/v2'
+import { PHOTOS } from '../content/v2'
+import { useScript } from '../content/useScript'
 import { Img } from '../ui/Img'
 import { useOverlays } from '../ui/Overlays'
+import { useI18n } from '../content/i18n'
 
 /**
  * 09 — सूर्योदय / सूर्यास्त
@@ -25,8 +27,10 @@ import { useOverlays } from '../ui/Overlays'
  * turns the whole scene orange.
  */
 export function Sun() {
+  const S = useScript()
+  const { t } = useI18n()
   const { zoom } = useOverlays()
-  const alt = 'दातेगडावरील भुयारी मंदिर — गणपती आणि मारुती'
+  const alt = t(PHOTOS.chamber?.alt)
 
   return (
     <Scene track={240} label="०९ सूर्य" className="s09">
@@ -35,17 +39,17 @@ export function Sun() {
 
         <div className="s09-lines">
           <p style={{ opacity: `calc(${ramp(0.02, 9)} - ${ramp(0.5, 3)} * .55)` }}>
-            {V2.sun.sunriseLine}
+            {S.sun.sunriseLine}
           </p>
           <p className="is-accent" style={{ opacity: ramp(0.42, 6) }}>
-            {V2.sun.sunsetLine}
+            {S.sun.sunsetLine}
           </p>
         </div>
 
         <button
           type="button"
           className="s09-plate"
-          aria-label={`${alt} — मोठं करा`}
+          aria-label={`${alt} — ${S.ui.enlarge}`}
           onClick={() => zoom(PHOTOS.chamber, alt)}
         >
           <Img media={PHOTOS.chamber} slot="dategad.chamber" sizes="480px" />
@@ -65,17 +69,17 @@ export function Sun() {
 
         <div className="s09-labels">
           <div>
-            <div className="s09-when is-dawn">{V2.sun.sunrise}</div>
-            <div className="s09-on is-dawn">{V2.sun.sunriseOn}</div>
+            <div className="s09-when is-dawn">{S.sun.sunrise}</div>
+            <div className="s09-on is-dawn">{S.sun.sunriseOn}</div>
           </div>
           <div className="is-right">
-            <div className="s09-when is-dusk">{V2.sun.sunset}</div>
-            <div className="s09-on is-dusk">{V2.sun.sunsetOn}</div>
+            <div className="s09-when is-dusk">{S.sun.sunset}</div>
+            <div className="s09-on is-dusk">{S.sun.sunsetOn}</div>
           </div>
         </div>
 
         <p className="s09-close" style={{ opacity: ramp(0.72, 6) }}>
-          {V2.sun.close}
+          {S.sun.close}
         </p>
       </Stage>
     </Scene>

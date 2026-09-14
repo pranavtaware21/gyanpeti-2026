@@ -1,6 +1,7 @@
 import { Scene, Stage } from '../ui/Scene'
 import { ramp } from '../engine/scrub'
-import { PHOTOS, V2 } from '../content/v2'
+import { PHOTOS } from '../content/v2'
+import { useScript } from '../content/useScript'
 import { Img } from '../ui/Img'
 
 /**
@@ -11,6 +12,7 @@ import { Img } from '../ui/Img'
  * transition between two layouts.
  */
 export function OneToEleven() {
+  const S = useScript()
   const show = ramp(0, 9)
   const one = ramp(0.32, 14)
   const eleven = ramp(0.56, 14)
@@ -50,17 +52,17 @@ export function OneToEleven() {
           className="s11-top"
           style={{ opacity: `calc(${ramp(0.06, 8)} - ${ramp(0.34, 6)})` }}
         >
-          {V2.oneToEleven.one}
+          {S.oneToEleven.one}
         </div>
 
         <div
           className="s11-bottom"
           style={{ opacity: `calc(${ramp(0.36, 7)} - ${ramp(0.68, 6)})` }}
         >
-          {V2.oneToEleven.bridge}
+          {S.oneToEleven.bridge}
         </div>
         <div className="s11-bottom s11-final" style={{ opacity: ramp(0.78, 7) }}>
-          <i>११</i> {V2.oneToEleven.eleven}
+          <i>{S.oneToEleven.numEleven}</i> {S.oneToEleven.eleven}
         </div>
       </Stage>
     </Scene>

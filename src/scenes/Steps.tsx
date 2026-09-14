@@ -1,5 +1,6 @@
 import { Scene, Stage, Seq, Beat } from '../ui/Scene'
-import { PHOTOS, V2 } from '../content/v2'
+import { PHOTOS } from '../content/v2'
+import { useScript } from '../content/useScript'
 import { Img } from '../ui/Img'
 
 /**
@@ -11,6 +12,7 @@ import { Img } from '../ui/Img'
  * block beneath, so the image never jumps to make room for text.
  */
 export function Steps() {
+  const S = useScript()
   return (
     <Scene track={255} label="०७ २९ पायऱ्या" className="s07">
       <Stage className="s07-stage">
@@ -34,15 +36,15 @@ export function Steps() {
               transform: `scale(calc(.82 + var(--q) * .18))`,
             }}
           >
-            {V2.steps.count}
+            {S.steps.count}
           </div>
         </div>
 
         <div className="s07-well">
           <Seq minHeight={120}>
-            <Beat from={0.04} to={0.38} rate={9}>{V2.steps.lines[0]}</Beat>
-            <Beat from={0.44} to={0.74} rate={9}>{V2.steps.lines[1]}</Beat>
-            <Beat from={0.8} rate={9}>{V2.steps.lines[2]}</Beat>
+            <Beat from={0.04} to={0.38} rate={9}>{S.steps.lines[0]}</Beat>
+            <Beat from={0.44} to={0.74} rate={9}>{S.steps.lines[1]}</Beat>
+            <Beat from={0.8} rate={9}>{S.steps.lines[2]}</Beat>
           </Seq>
         </div>
       </Stage>

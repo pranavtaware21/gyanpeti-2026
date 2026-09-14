@@ -1,6 +1,6 @@
 import { Scene, Stage } from '../ui/Scene'
 import { ramp, track } from '../engine/scrub'
-import { V2 } from '../content/v2'
+import { useScript } from '../content/useScript'
 
 /**
  * 01 — ॥ श्री ॥
@@ -12,6 +12,7 @@ import { V2 } from '../content/v2'
  * the decoration and start looking at the phone.
  */
 export function Shri() {
+  const S = useScript()
   const settle = ramp(0.78, 4)
   const leave = ramp(0.78, 5)
 
@@ -42,14 +43,14 @@ export function Shri() {
           }}
         >
           <h1 style={{ letterSpacing: 'calc(.5em - var(--q) * .34em)' }}>
-            {V2.shri.mark}
+            {S.shri.mark}
           </h1>
         </div>
         <div
           className="s01-hint"
           style={{ opacity: 'clamp(0,calc(1 - var(--g) * 26),1)' }}
         >
-          {V2.shri.hint}
+          {S.shri.hint}
         </div>
       </Stage>
     </Scene>

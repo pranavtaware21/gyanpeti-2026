@@ -1,6 +1,7 @@
 import { Scene, Stage } from '../ui/Scene'
 import { ramp } from '../engine/scrub'
-import { PHOTOS, V2 } from '../content/v2'
+import { PHOTOS } from '../content/v2'
+import { useScript } from '../content/useScript'
 import { Img } from '../ui/Img'
 
 /**
@@ -12,6 +13,7 @@ import { Img } from '../ui/Img'
  * scene 06 where it becomes the subject.
  */
 export function Journey() {
+  const S = useScript()
   const arrive = ramp(0.58, 6)
 
   return (
@@ -28,7 +30,7 @@ export function Journey() {
         </div>
 
         <div className="s05-lines">
-          {V2.journey.lines.map((line, i) => {
+          {S.journey.lines.map((line, i) => {
             const at = [0.04, 0.2, 0.36][i]
             const on = ramp(at, 8)
             return (
@@ -46,11 +48,11 @@ export function Journey() {
           className="s05-place"
           style={{ opacity: arrive, transform: `scale(calc(.78 + ${arrive} * .22))` }}
         >
-          {V2.journey.place}
+          {S.journey.place}
         </div>
 
         <div className="s05-credit" style={{ opacity: arrive }}>
-          {V2.journey.credit}
+          {S.journey.credit}
         </div>
       </Stage>
     </Scene>

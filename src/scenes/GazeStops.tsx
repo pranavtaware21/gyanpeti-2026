@@ -1,6 +1,7 @@
 import { Scene, Stage } from '../ui/Scene'
 import { ramp } from '../engine/scrub'
-import { PHOTOS, V2 } from '../content/v2'
+import { PHOTOS } from '../content/v2'
+import { useScript } from '../content/useScript'
 import { Img } from '../ui/Img'
 
 /**
@@ -11,6 +12,7 @@ import { Img } from '../ui/Img'
  * finally allowed to be the whole screen.
  */
 export function GazeStops() {
+  const S = useScript()
   const name = ramp(0.3, 7)
 
   return (
@@ -35,7 +37,7 @@ export function GazeStops() {
           className="s10-lead"
           style={{ opacity: `calc(${ramp(0, 9)} - ${ramp(0.3, 6)})` }}
         >
-          {V2.gaze.lead[0]}<br />{V2.gaze.lead[1]}
+          {S.gaze.lead[0]}<br />{S.gaze.lead[1]}
         </div>
 
         <div className="s10-foot">
@@ -43,10 +45,10 @@ export function GazeStops() {
             className="s10-name"
             style={{ opacity: name, transform: `translateY(calc((1 - ${name}) * 20px))` }}
           >
-            {V2.gaze.name}
+            {S.gaze.name}
           </h2>
-          <p style={{ opacity: ramp(0.5, 6) }}>{V2.gaze.a}</p>
-          <p className="is-accent" style={{ opacity: ramp(0.72, 6) }}>{V2.gaze.b}</p>
+          <p style={{ opacity: ramp(0.5, 6) }}>{S.gaze.a}</p>
+          <p className="is-accent" style={{ opacity: ramp(0.72, 6) }}>{S.gaze.b}</p>
         </div>
       </Stage>
     </Scene>

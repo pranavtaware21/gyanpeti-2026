@@ -1,6 +1,6 @@
 import { Scene, Stage, Seq, Beat } from '../ui/Scene'
 import { ramp } from '../engine/scrub'
-import { V2 } from '../content/v2'
+import { useScript } from '../content/useScript'
 import { Book, Coconut, Garland, Pedhe } from '../ui/OfferingForms'
 
 /**
@@ -16,6 +16,7 @@ import { Book, Coconut, Garland, Pedhe } from '../ui/OfferingForms'
  * colour. Nothing about the book is emphasised except that it arrives last.
  */
 export function Offering() {
+  const S = useScript()
   const r1 = ramp(0.22, 6)
   const r2 = ramp(0.42, 6)
   const r3 = ramp(0.7, 6)
@@ -39,9 +40,9 @@ export function Offering() {
 
         <div className="s15-top">
           <Seq minHeight={72}>
-            <Beat from={0} to={0.14} rate={14} outRate={9}>{V2.offering.lead}</Beat>
-            <Beat from={0.14} to={0.62} rate={9} outRate={6}>{V2.offering.always}</Beat>
-            <Beat from={0.68} rate={7}>{V2.offering.but}</Beat>
+            <Beat from={0} to={0.14} rate={14} outRate={9}>{S.offering.lead}</Beat>
+            <Beat from={0.14} to={0.62} rate={9} outRate={6}>{S.offering.always}</Beat>
+            <Beat from={0.68} rate={7}>{S.offering.but}</Beat>
           </Seq>
         </div>
 
@@ -53,17 +54,17 @@ export function Offering() {
         </div>
 
         <div className="s15-words">
-          <div style={{ opacity: `calc(1 - ${r1})` }}>{V2.offering.things[0]}</div>
-          <div style={{ opacity: `calc(${r1} - ${r2})` }}>{V2.offering.things[1]}</div>
-          <div style={{ opacity: `calc(${r2} - ${r3})` }}>{V2.offering.things[2]}</div>
-          <div className="is-accent" style={{ opacity: r3 }}>{V2.offering.book}</div>
+          <div style={{ opacity: `calc(1 - ${r1})` }}>{S.offering.things[0]}</div>
+          <div style={{ opacity: `calc(${r1} - ${r2})` }}>{S.offering.things[1]}</div>
+          <div style={{ opacity: `calc(${r2} - ${r3})` }}>{S.offering.things[2]}</div>
+          <div className="is-accent" style={{ opacity: r3 }}>{S.offering.book}</div>
         </div>
 
         <div
           className="s15-by"
           style={{ opacity: `calc(${ramp(0.5, 8)} - ${ramp(0.68, 8)})` }}
         >
-          {V2.offering.by}
+          {S.offering.by}
         </div>
       </Stage>
     </Scene>

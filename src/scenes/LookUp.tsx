@@ -1,6 +1,6 @@
 import { Scene, Stage } from '../ui/Scene'
 import { ramp } from '../engine/scrub'
-import { V2 } from '../content/v2'
+import { useScript } from '../content/useScript'
 
 /**
  * 20 — put the phone down.
@@ -10,6 +10,7 @@ import { V2 } from '../content/v2'
  * with the instruction to stop looking at the screen.
  */
 export function LookUp() {
+  const S = useScript()
   const look = ramp(0.64, 14)
 
   return (
@@ -21,21 +22,21 @@ export function LookUp() {
           className="s20-seen"
           style={{ opacity: `calc(${ramp(0, 10)} - ${ramp(0.30, 14)})` }}
         >
-          {V2.lookUp.seen[0]}<br />{V2.lookUp.seen[1]}<br />{V2.lookUp.seen[2]}
+          {S.lookUp.seen[0]}<br />{S.lookUp.seen[1]}<br />{S.lookUp.seen[2]}
         </p>
 
         <p
           className="s20-now"
           style={{ opacity: `calc(${ramp(0.30, 14)} - ${ramp(0.64, 14)})` }}
         >
-          {V2.lookUp.now[0]}<br />{V2.lookUp.now[1]}
+          {S.lookUp.now[0]}<br />{S.lookUp.now[1]}
         </p>
 
         <p
           className="s20-look"
           style={{ opacity: look, transform: `scale(calc(.88 + ${look} * .12))` }}
         >
-          {V2.lookUp.look}
+          {S.lookUp.look}
         </p>
       </Stage>
     </Scene>

@@ -1,6 +1,7 @@
 import { Scene, Stage } from '../ui/Scene'
 import { ramp } from '../engine/scrub'
-import { PHOTOS, V2 } from '../content/v2'
+import { PHOTOS } from '../content/v2'
+import { useScript } from '../content/useScript'
 import { MARUTIS } from '../content/marutis'
 import { Img } from '../ui/Img'
 import { useOverlays } from '../ui/Overlays'
@@ -43,6 +44,7 @@ function wideRing(i: number, n: number): [number, number] {
 }
 
 export function Composition() {
+  const S = useScript()
   const stage = useStage()
   const { openMaruti } = useOverlays()
   const wide = stage === 'wide'
@@ -99,10 +101,10 @@ export function Composition() {
 
         <div className="s19-foot">
           <div className="s19-lead" style={{ opacity: ramp(0.58, 8) }}>
-            {V2.composition.lead}
+            {S.composition.lead}
           </div>
           <div className="s19-main-label" style={{ opacity: ramp(0.66, 8) }}>
-            {V2.composition.main}
+            {S.composition.main}
           </div>
         </div>
       </Stage>

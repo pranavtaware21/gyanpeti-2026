@@ -1,6 +1,6 @@
 import { Scene, Stage, Beat } from '../ui/Scene'
 import { ramp } from '../engine/scrub'
-import { V2 } from '../content/v2'
+import { useScript } from '../content/useScript'
 
 /**
  * 02 — १५ वर्षे
@@ -11,6 +11,7 @@ import { V2 } from '../content/v2'
  * otherwise, and a number that wobbles as it lands looks like a bug.
  */
 export function FifteenYears() {
+  const S = useScript()
   const meet = ramp(0, 5)
   const recede = ramp(0.42, 10)
 
@@ -33,10 +34,10 @@ export function FifteenYears() {
           }}
         >
           <span style={{ transform: `translateX(calc((1 - ${meet}) * -52vw)) rotate(calc((1 - ${meet}) * -22deg))` }}>
-            {V2.fifteen.digits[0]}
+            {S.fifteen.digits[0]}
           </span>
           <span style={{ transform: `translateX(calc((1 - ${meet}) * 52vw)) rotate(calc((1 - ${meet}) * 22deg))` }}>
-            {V2.fifteen.digits[1]}
+            {S.fifteen.digits[1]}
           </span>
         </div>
 
@@ -44,11 +45,11 @@ export function FifteenYears() {
           className="s02-head"
           style={{ opacity: `calc(${ramp(0.22, 7)} - ${ramp(0.46, 10)})` }}
         >
-          {V2.fifteen.head}
+          {S.fifteen.head}
         </div>
 
         <div className="s02-lines" style={{ opacity: ramp(0.56, 10) }}>
-          {V2.fifteen.lines.map((line, i) => (
+          {S.fifteen.lines.map((line, i) => (
             <Beat key={line} from={0.56 + i * 0.07} rate={9} className="s02-line">
               {line}
             </Beat>

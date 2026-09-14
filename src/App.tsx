@@ -1,6 +1,7 @@
-import { I18nProvider } from './content/i18n'
+import { I18nProvider, useI18n } from './content/i18n'
 import { OverlayProvider } from './ui/Overlays'
 import { ProgressRule } from './ui/ProgressRule'
+import { LangPicker } from './ui/LangPicker'
 import { useStage } from './engine/useViewport'
 import { Diagnostics } from './ui/Diagnostics'
 
@@ -47,6 +48,7 @@ import { Close } from './scenes/Close'
  */
 export default function App() {
   const stage = useStage()
+  const { lang } = useI18n()
   // ?debug=1 prints the scroll engine's live state over the piece.
   const debug = new URLSearchParams(location.search).get('debug') === '1'
 
@@ -54,9 +56,10 @@ export default function App() {
     <I18nProvider>
       <OverlayProvider>
         <ProgressRule />
+        <LangPicker />
         {debug && <Diagnostics />}
 
-        <main className="shaft" data-stage={stage}>
+        <main className="shaft" data-stage={stage} data-lang={lang}>
           <Shri />
           <FifteenYears />
           <Identity />

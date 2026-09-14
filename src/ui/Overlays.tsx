@@ -4,9 +4,11 @@ import {
 } from 'react'
 import type { Media } from '../content/types'
 import { MARUTIS } from '../content/marutis'
-import { toDev } from '../content/derived'
+import { num } from '../content/derived'
+import { useI18n } from '../content/i18n'
 import { haptic } from '../engine/haptics'
 import { Img } from './Img'
+import { useScript } from '../content/useScript'
 
 /**
  * The two things in the piece that sit on top of the scroll: the detail sheet
@@ -134,8 +136,10 @@ function MarutiSheet({
   /** True while the zoom is open on top of this sheet. */
   locked: boolean
 }) {
+  const S = useScript()
+  const { t, lang } = useI18n()
   const m = MARUTIS[index]
-  const story = m.story.mr.trim()
+  const story = t(m.story).trim()
 
   /*
     Arrow keys walk the eleven as well as the buttons — once the sheet is open
@@ -157,22 +161,22 @@ function MarutiSheet({
 
   return (
     <div className="sheet" role="dialog" aria-modal="true" aria-label={m.name.dev}>
-      <button className="sheet-scrim" aria-label="बंद करा" onClick={onClose} />
+      <button className="sheet-scrim" aria-label={S.ui.close} onClick={onClose} />
       <div className="sheet-card">
         <div className="sheet-nav">
           <button
             className="sheet-step"
-            aria-label="मागील मारुती"
+            aria-label={S.ui.prevMaruti}
             onClick={() => onStep(-1)}
           >
             ‹
           </button>
           <span className="sheet-count" aria-live="polite">
-            {toDev(m.order)} / {toDev(MARUTIS.length)}
+            {num(m.order, lang)} / {num(MARUTIS.length, lang)}
           </span>
           <button
             className="sheet-step"
-            aria-label="पुढील मारुती"
+            aria-label={S.ui.nextMaruti}
             onClick={() => onStep(1)}
           >
             ›
@@ -188,14 +192,14 @@ function MarutiSheet({
         <button
           type="button"
           className="sheet-photo"
-          aria-label={`${m.name.dev} — मोठं करा`}
+          aria-label={`${m.name.dev} — ${S.ui.enlarge}`}
           onClick={() => onZoom(m.media ?? null, m.name.dev)}
         >
           <Img media={m.media ?? null} slot={`maruti.${m.id}.photo`} sizes="480px" />
         </button>
 
         <div className="sheet-head">
-          <span className="sheet-n">{toDev(m.order)}</span>
+          <span className="sheet-n">{num(m.order, lang)}</span>
           <span className="sheet-name">{m.name.dev}</span>
         </div>
         <div className="sheet-place">
@@ -206,11 +210,11 @@ function MarutiSheet({
         {story
           ? <p className="sheet-info">{story}</p>
           : <div className="slot" role="note">
-              <span className="slot-label">माहिती येणे बाकी</span>
+              <span className="slot-label">{S.ui.storyPending}</span>
               <code className="slot-id">maruti.{m.id}.story</code>
             </div>}
 
-        <button className="sheet-close" onClick={onClose}>बंद करा</button>
+        <button className="sheet-close" onClick={onClose}>{S.ui.close}</button>
       </div>
     </div>
   )

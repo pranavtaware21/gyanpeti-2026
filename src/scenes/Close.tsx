@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { Scene, Stage } from '../ui/Scene'
 import { ramp } from '../engine/scrub'
-import { V2 } from '../content/v2'
+import { useScript } from '../content/useScript'
 import { haptic } from '../engine/haptics'
 
 /**
@@ -14,6 +14,7 @@ import { haptic } from '../engine/haptics'
  * meant to be looking at the decoration rather than the phone.
  */
 export function Close() {
+  const S = useScript()
   const fired = useRef(false)
   const endRef = useRef<HTMLDivElement>(null)
 
@@ -41,24 +42,24 @@ export function Close() {
           className="s21-lead"
           style={{ opacity: `calc(${ramp(0, 10)} - ${ramp(0.16, 12)})` }}
         >
-          {V2.close.lead}
+          {S.close.lead}
         </p>
 
         <div className="s21-body" style={{ opacity: `calc(1 - ${clear})` }}>
           <div className="s21-youll" style={{ opacity: ramp(0.26, 9) }}>
-            {V2.close.youWillSee}
+            {S.close.youWillSee}
           </div>
           <div className="s21-strands">
-            {V2.close.strands.map((line, i) => (
+            {S.close.strands.map((line, i) => (
               <div key={line} style={{ opacity: ramp(0.26 + i * 0.08, 9) }}>{line}</div>
             ))}
           </div>
-          <div className="s21-and" style={{ opacity: ramp(0.58, 9) }}>{V2.close.and}</div>
+          <div className="s21-and" style={{ opacity: ramp(0.58, 9) }}>{S.close.and}</div>
           <div
             className="s21-name"
             style={{ opacity: `calc(${ramp(0.64, 8)} - ${ramp(0.78, 8)} * .82)` }}
           >
-            {V2.close.name}<i>{V2.close.year}</i>.
+            {S.close.name}<i>{S.close.year}</i>.
           </div>
         </div>
 
@@ -67,13 +68,13 @@ export function Close() {
           className="s21-morya"
           style={{ opacity: ramp(0.81, 12), transform: `scale(calc(.9 + ${ramp(0.81, 12)} * .1))` }}
         >
-          <h2>{V2.close.morya}</h2>
+          <h2>{S.close.morya}</h2>
         </div>
 
         {/* Last thing on the last screen, and deliberately the quietest. */}
         <div className="s21-credit" style={{ opacity: ramp(0.9, 10) }}>
-          <span className="s21-credit-label">{V2.close.creditLabel}</span>
-          <span className="s21-credit-name">{V2.close.creditName}</span>
+          <span className="s21-credit-label">{S.close.creditLabel}</span>
+          <span className="s21-credit-name">{S.close.creditName}</span>
         </div>
       </Stage>
     </Scene>

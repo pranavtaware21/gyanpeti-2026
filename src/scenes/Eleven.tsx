@@ -1,8 +1,9 @@
 import { Scene, Stage } from '../ui/Scene'
 import { ramp } from '../engine/scrub'
-import { V2 } from '../content/v2'
+import { useScript } from '../content/useScript'
 import { MARUTIS } from '../content/marutis'
-import { toDev } from '../content/derived'
+import { num } from '../content/derived'
+import { useI18n } from '../content/i18n'
 import { Img } from '../ui/Img'
 import { useOverlays } from '../ui/Overlays'
 import { useStage } from '../engine/useViewport'
@@ -23,10 +24,12 @@ import { useStage } from '../engine/useViewport'
  * same tap target.
  */
 export function Eleven() {
+  const S = useScript()
+  const { lang } = useI18n()
   const stage = useStage()
   const { openMaruti } = useOverlays()
 
-  const calls = V2.eleven.calls.map((text, i) => {
+  const calls = S.eleven.calls.map((text, i) => {
     const from = [0.02, 0.16, 0.3, 0.46, 0.62, 0.8][i]
     const to = [0.16, 0.3, 0.46, 0.62, 0.8, 2][i]
     return (
@@ -61,7 +64,7 @@ export function Eleven() {
         />
       </span>
       <span className="s12-card-head">
-        <i>{toDev(m.order)}</i>
+        <i>{num(m.order, lang)}</i>
         <b>{m.name.dev}</b>
       </span>
       <span className="s12-card-place">
@@ -91,7 +94,7 @@ export function Eleven() {
         <div className="s12-progress" aria-hidden="true">
           <div style={{ width: 'calc(var(--q) * 100%)' }} />
         </div>
-        <div className="s12-hint">{V2.eleven.hint}</div>
+        <div className="s12-hint">{S.eleven.hint}</div>
       </Stage>
     </Scene>
   )

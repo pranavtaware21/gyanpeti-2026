@@ -1,6 +1,6 @@
 import { Scene, Stage } from '../ui/Scene'
 import { ramp, track } from '../engine/scrub'
-import { V2 } from '../content/v2'
+import { useScript } from '../content/useScript'
 
 /**
  * 03 — ज्ञान पेटी बाप्पा माझा
@@ -10,6 +10,7 @@ import { V2 } from '../content/v2'
  * board, which is what the display face is drawn to look like.
  */
 export function Identity() {
+  const S = useScript()
   const wipe = (at: number) =>
     `inset(0 calc(100% - clamp(0%,calc((var(--q) - ${at}) * 320%),100%)) 0 0)`
 
@@ -22,16 +23,16 @@ export function Identity() {
           className="s03-lead"
           style={{ opacity: `calc(${ramp(0, 9)} - ${ramp(0.3, 6)})` }}
         >
-          {V2.identity.lead[0]}<br />{V2.identity.lead[1]}
+          {S.identity.lead[0]}<br />{S.identity.lead[1]}
         </div>
 
         <h1 className="s03-title">
           <span className="s03-clip">
-            <span style={{ clipPath: wipe(0.3) }}>{V2.identity.title[0]}</span>
+            <span style={{ clipPath: wipe(0.3) }}>{S.identity.title[0]}</span>
           </span>
           <span className="s03-clip">
             <span className="is-accent" style={{ clipPath: wipe(0.42) }}>
-              {V2.identity.title[1]}
+              {S.identity.title[1]}
             </span>
           </span>
         </h1>
@@ -47,12 +48,12 @@ export function Identity() {
               opacity: ramp(0.66, 5),
             }}
           >
-            {V2.identity.year}
+            {S.identity.year}
           </div>
         </div>
 
         <div className="s03-tail" style={{ opacity: ramp(0.78, 6) }}>
-          {V2.identity.tail}
+          {S.identity.tail}
         </div>
       </Stage>
     </Scene>

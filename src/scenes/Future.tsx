@@ -1,6 +1,6 @@
 import { Scene, Stage, Seq, Beat } from '../ui/Scene'
 import { ramp } from '../engine/scrub'
-import { V2 } from '../content/v2'
+import { useScript } from '../content/useScript'
 
 /**
  * 17 — where one book goes.
@@ -11,6 +11,7 @@ import { V2 } from '../content/v2'
  * argument is finished and the piece is returning to the object in the room.
  */
 export function Future() {
+  const S = useScript()
   const indents = [38, 96, 52, 112, 44]
   const tops = [0, 20, 40, 60, 80]
 
@@ -23,7 +24,7 @@ export function Future() {
             aria-hidden="true"
             style={{ height: `calc(${ramp(0, 1.6)} * 100%)` }}
           />
-          {V2.future.path.map((word, i) => {
+          {S.future.path.map((word, i) => {
             const on = ramp(0.04 + i * 0.08, 9)
             return (
               <div
@@ -44,11 +45,11 @@ export function Future() {
 
         <div className="s17-well">
           <Seq minHeight={120}>
-            <Beat from={0.44} to={0.58} rate={9}>{V2.future.lines[0]}</Beat>
-            <Beat from={0.6} to={0.7} rate={9}>{V2.future.lines[1]}</Beat>
-            <Beat from={0.70} to={0.80} rate={9} outRate={14}>{V2.future.lines[2]}</Beat>
+            <Beat from={0.44} to={0.58} rate={9}>{S.future.lines[0]}</Beat>
+            <Beat from={0.6} to={0.7} rate={9}>{S.future.lines[1]}</Beat>
+            <Beat from={0.70} to={0.80} rate={9} outRate={14}>{S.future.lines[2]}</Beat>
             <Beat from={0.80} to={0.96} rate={14} outRate={20} className="s17-close">
-              {V2.future.close}
+              {S.future.close}
             </Beat>
           </Seq>
         </div>

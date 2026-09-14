@@ -1,8 +1,10 @@
 import { Scene, Stage, Seq, Beat } from '../ui/Scene'
 import { ramp } from '../engine/scrub'
-import { GYAN_PHOTOS, V2 } from '../content/v2'
+import { GYAN_PHOTOS } from '../content/v2'
+import { useScript } from '../content/useScript'
 import { Img } from '../ui/Img'
 import { useOverlays } from '../ui/Overlays'
+import { useI18n } from '../content/i18n'
 
 /**
  * 16 — the page turns to paper.
@@ -24,6 +26,8 @@ import { useOverlays } from '../ui/Overlays'
  * cards being dropped from one hand rather than eight images fading up.
  */
 export function GyanPeti() {
+  const S = useScript()
+  const { t } = useI18n()
   const { zoom } = useOverlays()
   const open = ramp(0, 7)
 
@@ -39,18 +43,18 @@ export function GyanPeti() {
         <div className="s16-body on-paper" style={{ opacity: ramp(0.16, 8) }}>
           <Seq minHeight={150}>
             <Beat from={0.16} to={0.34} rate={10}>
-              {V2.gyanPeti.questions[0]}
-              <b>{V2.gyanPeti.q1Emphasis}</b>
+              {S.gyanPeti.questions[0]}
+              <b>{S.gyanPeti.q1Emphasis}</b>
             </Beat>
-            <Beat from={0.36} to={0.52} rate={10}>{V2.gyanPeti.questions[1]}</Beat>
-            <Beat from={0.54} to={0.7} rate={10}>{V2.gyanPeti.questions[2]}</Beat>
-            <Beat from={0.72} to={0.86} rate={10} outRate={12}>{V2.gyanPeti.questions[3]}</Beat>
+            <Beat from={0.36} to={0.52} rate={10}>{S.gyanPeti.questions[1]}</Beat>
+            <Beat from={0.54} to={0.7} rate={10}>{S.gyanPeti.questions[2]}</Beat>
+            <Beat from={0.72} to={0.86} rate={10} outRate={12}>{S.gyanPeti.questions[3]}</Beat>
 
             <Beat from={0.88} rate={12} className="s16-final">
-              <div className="s16-becomes">{V2.gyanPeti.becomes}</div>
-              <div className="s16-offering">{V2.gyanPeti.offering}</div>
-              <div className="s16-therefore">{V2.gyanPeti.therefore}</div>
-              <div className="s16-name">{V2.gyanPeti.name}</div>
+              <div className="s16-becomes">{S.gyanPeti.becomes}</div>
+              <div className="s16-offering">{S.gyanPeti.offering}</div>
+              <div className="s16-therefore">{S.gyanPeti.therefore}</div>
+              <div className="s16-name">{S.gyanPeti.name}</div>
             </Beat>
           </Seq>
         </div>
@@ -77,8 +81,8 @@ export function GyanPeti() {
                 type="button"
                 key={photo.key}
                 className="s16-card"
-                aria-label={`${photo.alt} — मोठं करा`}
-                onClick={() => zoom(photo.media, photo.alt)}
+                aria-label={`${t(photo.alt)} — ${S.ui.enlarge}`}
+                onClick={() => zoom(photo.media, t(photo.alt))}
                 style={{
                   left: `${[2.5, 26.5, 50.5, 74.5][col]}%`,
                   bottom: row === 0 ? '106px' : '0px',

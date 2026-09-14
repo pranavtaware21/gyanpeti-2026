@@ -15,6 +15,17 @@ const DEV = '०१२३४५६७८९'
 export const toDev = (n: number | string) =>
   String(n).replace(/\d/g, (d) => DEV[Number(d)])
 
+/**
+ * A numeral in the script being read.
+ *
+ * Devanagari digits inside an English sentence read as a glitch, and Latin
+ * digits inside a Marathi one read as a different voice. Everything that
+ * prints a number — the eleven's order, the years, the district tally, the
+ * sheet's counter — goes through this.
+ */
+export const num = (n: number | string, lang: 'mr' | 'en' | string) =>
+  lang === 'en' ? String(n) : toDev(n)
+
 /** इ.स. year parsed out of the established string, e.g. "शके १५६६ — इ.स. १६४४". */
 function ceYear(i: number): number | null {
   const raw = MARUTIS[i].established?.mr ?? ''

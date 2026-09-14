@@ -1,6 +1,6 @@
 import { Scene, Stage } from '../ui/Scene'
 import { ramp } from '../engine/scrub'
-import { V2 } from '../content/v2'
+import { useScript } from '../content/useScript'
 
 /**
  * 14 — ११च का?
@@ -10,6 +10,7 @@ import { V2 } from '../content/v2'
  * moves on, which is what the supplied script does.
  */
 export function WhyEleven() {
+  const S = useScript()
   const q = ramp(0.26, 7)
 
   return (
@@ -27,19 +28,19 @@ export function WhyEleven() {
           className="s14-lead"
           style={{ opacity: `calc(${ramp(0, 9)} - ${ramp(0.26, 6)})` }}
         >
-          {V2.whyEleven.lead}
+          {S.whyEleven.lead}
         </p>
 
         <h2
           className="s14-q"
           style={{ opacity: q, transform: `scale(calc(.8 + ${q} * .2))` }}
         >
-          <i>११</i>{V2.whyEleven.question}
+          <i>{S.whyEleven.num}</i>{S.whyEleven.question}
         </h2>
 
-        <p style={{ opacity: ramp(0.48, 7) }}>{V2.whyEleven.a}</p>
-        <p style={{ opacity: ramp(0.64, 7) }}>{V2.whyEleven.b}</p>
-        <p className="is-accent" style={{ opacity: ramp(0.8, 7) }}>{V2.whyEleven.c}</p>
+        <p style={{ opacity: ramp(0.48, 7) }}>{S.whyEleven.a}</p>
+        <p style={{ opacity: ramp(0.64, 7) }}>{S.whyEleven.b}</p>
+        <p className="is-accent" style={{ opacity: ramp(0.8, 7) }}>{S.whyEleven.c}</p>
       </Stage>
     </Scene>
   )

@@ -1,6 +1,7 @@
 import { Scene, Stage } from '../ui/Scene'
 import { ramp } from '../engine/scrub'
-import { PHOTOS, V2 } from '../content/v2'
+import { PHOTOS } from '../content/v2'
+import { useScript } from '../content/useScript'
 import { Img } from '../ui/Img'
 import { useOverlays } from '../ui/Overlays'
 
@@ -16,6 +17,7 @@ import { useOverlays } from '../ui/Overlays'
  * the cards claim it, which a flat radial wash could only suggest.
  */
 export function TwoForms() {
+  const S = useScript()
   const { zoom } = useOverlays()
   const dim = ramp(0.5, 4)
 
@@ -35,49 +37,49 @@ export function TwoForms() {
 
         <div className="s08-pair">
           <div style={{ opacity: `calc(${ramp(0.02, 9)} - ${dim} * .55)` }}>
-            {V2.twoForms.stone}
+            {S.twoForms.stone}
           </div>
           <div style={{ opacity: `calc(${ramp(0.16, 9)} - ${dim} * .55)` }}>
-            {V2.twoForms.sky}
+            {S.twoForms.sky}
           </div>
         </div>
 
         <p className="s08-lead" style={{ opacity: ramp(0.34, 8) }}>
-          {V2.twoForms.lead}
+          {S.twoForms.lead}
         </p>
 
         <div className="s08-cards">
           <button
             type="button"
             className="s08-card s08-card--photo"
-            aria-label={`${V2.twoForms.ganpati} — मोठं करा`}
-            onClick={() => zoom(PHOTOS.ganpati, V2.twoForms.ganpati)}
+            aria-label={`${S.twoForms.ganpati} — ${S.ui.enlarge}`}
+            onClick={() => zoom(PHOTOS.ganpati, S.twoForms.ganpati)}
             style={{
               opacity: ramp(0.5, 8),
               transform: `translateY(calc((1 - ${ramp(0.5, 8)}) * 18px))`,
             }}
           >
             <Img media={PHOTOS.ganpati} slot="dategad.ganpati" fill sizes="50vw" />
-            <span className="s08-caption">{V2.twoForms.ganpati}</span>
+            <span className="s08-caption">{S.twoForms.ganpati}</span>
           </button>
 
           <button
             type="button"
             className="s08-card s08-card--photo"
-            aria-label={`${V2.twoForms.maruti} — मोठं करा`}
-            onClick={() => zoom(PHOTOS.shrine, V2.twoForms.maruti)}
+            aria-label={`${S.twoForms.maruti} — ${S.ui.enlarge}`}
+            onClick={() => zoom(PHOTOS.shrine, S.twoForms.maruti)}
             style={{
               opacity: ramp(0.62, 8),
               transform: `translateY(calc((1 - ${ramp(0.62, 8)}) * 18px))`,
             }}
           >
             <Img media={PHOTOS.shrine} slot="dategad.shrine" fill sizes="50vw" />
-            <span className="s08-caption">{V2.twoForms.maruti}</span>
+            <span className="s08-caption">{S.twoForms.maruti}</span>
           </button>
         </div>
 
         <p className="s08-tail" style={{ opacity: ramp(0.76, 8) }}>
-          {V2.twoForms.tail}
+          {S.twoForms.tail}
         </p>
       </Stage>
     </Scene>
